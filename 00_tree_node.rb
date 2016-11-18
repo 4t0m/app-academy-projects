@@ -1,18 +1,16 @@
 class PolyTreeNode
-  attr_reader :parent, :children, :pos, :depth
+  attr_reader :parent, :children, :pos
 
   def initialize(pos)
     @pos = pos
     @parent = nil
     @children = []
-    @depth = 0
   end
 
   def parent=(parent_node)
     parent.children.delete(self) unless parent.nil?
 
     @parent = parent_node
-    @depth = parent.depth + 1
     parent_node.children << self unless parent_node.nil?
   end
 
@@ -40,7 +38,7 @@ class PolyTreeNode
     queue = [self]
     until queue.empty?
       current_node = queue.shift
-      return current_node if current_node.value == target_value
+      return current_node if current_node.value == target_pos
       queue += current_node.children
     end
   end
