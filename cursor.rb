@@ -89,11 +89,6 @@ class Cursor
     when :left, :down, :up, :right
       update_pos(MOVES[key])
       nil
-    when :tab
-    when :newline
-    when :escape
-    when :backspace
-    when :delete
     when :ctrl_c
       Process.exit(0)
     end

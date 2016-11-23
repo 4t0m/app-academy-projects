@@ -4,9 +4,9 @@ require_relative 'cursor'
 
 class Display
   attr_accessor :board, :cursor, :selected
-  BAR = "   "+ "-" * 41
+  BAR = "   " + "-" * 41
   HEADING = "     " + ('a'..'h').to_a.join('    ')
-  CURSOR_COLOR = [:cyan, :magenta]
+  CURSOR_COLOR = [:cyan, :magenta].freeze
 
   def initialize(board, cursor)
     @board = board
