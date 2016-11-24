@@ -3,13 +3,12 @@ require_relative "deck"
 class Hand
   attr_reader :cards
 
-  def initialize(deck)
-    @deck = deck
-    @cards = populate_hand
+  def initialize
+    @cards = []
   end
 
-  def populate_hand
-    @deck.draw(5)
+  def populate_hand(deck)
+    @cards = deck.draw(5)
   end
 
   def flush_hand?(arr)

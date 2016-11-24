@@ -5,7 +5,7 @@ require "card"
 describe Hand do
   let (:deck) { double }
   let (:card) { double("card")}
-  subject { Hand.new(deck) }
+  subject { Hand.new }
 
   before(:each) do
     allow(card).to receive(:is_a?).and_return(Card)
@@ -19,7 +19,7 @@ describe Hand do
   end
 
   describe "#populate_hand" do
-    let (:cards) { subject.populate_hand }
+    let (:cards) { subject.populate_hand(deck) }
     it "fills the hand with 5 cards" do
       expect(cards.size).to eq(5)
     end
