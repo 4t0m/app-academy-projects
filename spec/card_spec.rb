@@ -11,13 +11,14 @@ describe Card do
     it "initializes with a suit" do
       expect(subject.suit).to eq(:heart)
     end
+    context "When input is invalid" do
+      it "raises an error for invalid values" do
+        expect{ Card.new(99, :heart) }.to raise_error("Invalid Value")
+      end
 
-    it "raises an error for invalid values" do
-      expect{ Card.new(99, :heart) }.to raise_error("Invalid Value")
-    end
-
-    it "raises an error for invalid suits" do
-      expect{ Card.new(12, :pigeon) }.to raise_error("Invalid Suit")
+      it "raises an error for invalid suits" do
+        expect{ Card.new(12, :pigeon) }.to raise_error("Invalid Suit")
+      end
     end
   end
 
