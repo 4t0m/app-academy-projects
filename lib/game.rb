@@ -1,9 +1,11 @@
+require_relative 'deck'
 class Game
   attr_reader :players, :pot
 
   def initialize(players)
     @players = players
     @pot = 0
+    @deck = Deck.new
   end
 
   def current_player

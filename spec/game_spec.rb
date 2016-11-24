@@ -18,6 +18,10 @@ describe Game do
     it "sets pot to zero" do
       expect(subject.pot).to eq(0)
     end
+
+    it "holds a deck" do
+      
+    end
   end
 
   describe "#next_player" do
