@@ -1,4 +1,5 @@
 require_relative 'minmaxstackqueue'
+require 'benchmark'
 
 def max_windowed_range(array, window_size)
   max_range = nil
