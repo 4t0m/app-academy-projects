@@ -77,7 +77,9 @@ class LinkedList
   def remove(key)
     each do |link|
       next unless link.key == key
-      if link == @head
+      if link == @head && @head.next.nil?
+        @head, @tail = nil, nil
+      elsif link == @head
         @head = @head.next
         @head.prev = nil
       elsif link == @tail
