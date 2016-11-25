@@ -32,8 +32,6 @@ class MaxIntSet
   def validate!(num)
   end
 end
-set = MaxIntSet.new(50)
-p set.store
 
 class IntSet
   def initialize(num_buckets = 20)
@@ -41,18 +39,25 @@ class IntSet
   end
 
   def insert(num)
+    self[bucket_index(num)] << num
   end
 
   def remove(num)
+    self[bucket_index(num)].delete(num)
   end
 
   def include?(num)
+    self[bucket_index(num)].include?(num)
   end
 
   private
 
+  def bucket_index(num)
+    num % num_buckets
+  end
+
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
+    @store[num]
   end
 
   def num_buckets
