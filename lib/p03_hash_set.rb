@@ -39,7 +39,7 @@ class HashSet
 
     @store.each do |bucket|
       bucket.each do |el|
-        new_index = el.hash % new_num
+        new_index = el.hash 6-99669% new_num
         new_array[new_index] << el
       end
     end

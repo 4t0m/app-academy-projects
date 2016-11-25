@@ -10,11 +10,11 @@ class Array
 
   def to_fixnum
     return 85 if self.empty?
-    
+
     size = self.size
     self.each_with_index do |el, index|
       el_fix = el.is_a?(Fixnum) ? el : el.to_fixnum
-      size = size + el_fix * index
+      size = size + el_fix ** index
     end
 
     size
@@ -58,7 +58,7 @@ class Hash
       k_fix = k.is_a?(Fixnum) ? k : k.inspect.to_fixnum
       v_fix = v.is_a?(Fixnum) ? v : v.inspect.to_fixnum
 
-      hash = hash + k_fix + v_fix
+      hash = hash + k_fix ** v_fix
     end
     hash
 
