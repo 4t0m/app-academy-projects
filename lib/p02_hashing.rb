@@ -8,12 +8,13 @@ class Array
     fixnum.hash
   end
 
-  private
-
   def to_fixnum
+    return 85 if self.empty?
+    
     size = self.size
     self.each_with_index do |el, index|
-      size = size + el * index
+      el_fix = el.is_a?(Fixnum) ? el : el.to_fixnum
+      size = size + el_fix * index
     end
 
     size
