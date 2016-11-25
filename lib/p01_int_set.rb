@@ -39,25 +39,21 @@ class IntSet
   end
 
   def insert(num)
-    self[bucket_index(num)] << num
+    @store[self[num]] << num
   end
 
   def remove(num)
-    self[bucket_index(num)].delete(num)
+    @store[self[num]].delete(num)
   end
 
   def include?(num)
-    self[bucket_index(num)].include?(num)
+    @store[self[num]].include?(num)
   end
 
   private
 
-  def bucket_index(num)
-    num % num_buckets
-  end
-
   def [](num)
-    @store[num]
+    num % num_buckets
   end
 
   def num_buckets
@@ -76,27 +72,23 @@ class ResizingIntSet
   def insert(num)
     @count += 1
     resize! if num_buckets < count
-    self[bucket_index(num)] << num
+    @store[self[num]] << num
   end
 
   def remove(num)
     @count -= 1
-    self[bucket_index(num)].delete(num)
+    @store[self[num]].delete(num)
   end
 
   def include?(num)
-    self[bucket_index(num)].include?(num)
+    @store[self[num]].include?(num)
   end
 
 
   private
 
-  def bucket_index(num)
-    num % num_buckets
-  end
-
   def [](num)
-    @store[num]
+    num % num_buckets
   end
 
   def num_buckets
