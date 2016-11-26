@@ -33,9 +33,15 @@ class DynamicArray
   end
 
   def [](i)
+
+    @store[i]
+  rescue "Overflow error"
+    nil
+
   end
 
   def []=(i, val)
+
   end
 
   def capacity
@@ -46,24 +52,54 @@ class DynamicArray
   end
 
   def push(val)
+    i = 0
+    until i == capacity - 1
+      if @store[i].nil?
+        return @store[i] = val
+      else
+        i += 1
+      end
+    end
   end
 
   def unshift(val)
+    new_array = StaticArray.new(capacity)
+    i = 0
+    until i == capacity - 2
+      new_array[i + 1] = @store[i]
+      i += 1
+    end
+
+    new_array[0] = val
+    p new_array
+    @store = new_array
   end
 
   def pop
+    popped_val = last
+    @store[capacity] = nil
+
+    return popped_val
   end
 
   def shift
   end
 
   def first
+    @store[0]
   end
 
   def last
+    @store[capacity]
   end
 
-  def each
+  def each(&prc)
+    i = 0
+
+    until i + 1 == capacity
+      prc.call(@store[i])
+      i += 1
+    end
   end
 
   def to_s
@@ -81,5 +117,6 @@ class DynamicArray
   private
 
   def resize!
+
   end
 end
