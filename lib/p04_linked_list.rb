@@ -28,7 +28,6 @@ class LinkedList
   def initialize
     @head = nil
     @tail = nil
-
   end
 
   def [](i)
@@ -63,11 +62,10 @@ class LinkedList
     if last.nil?
       @head = new_last
     else
-      last.next = new_last
+      @tail.next = new_last
       new_last.prev = last
     end
     @tail = new_last
-
   end
 
   def update(key, val)
