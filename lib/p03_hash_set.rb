@@ -10,23 +10,24 @@ class HashSet
 
   def insert(key)
     resize! if count == num_buckets
-    @store[self[key]] << key
+    self[key] << key
     @count += 1
   end
 
   def include?(key)
-    @store[self[key]].include?(key)
+    self[key].include?(key)
   end
 
   def remove(key)
     @count -= 1
-    @store[self[key]].delete(key)
+    self[key].delete(key)
   end
 
   private
 
+
   def [](num)
-    num.hash % num_buckets
+    @store[num.hash % num_buckets]
   end
 
   def num_buckets
