@@ -3,25 +3,17 @@ require_relative 'my_stack'
 class StackQueue
 
   def initialize
-    @store = MyStack.new
-    @hold_store = MyStack.new
+    @in_stack = MyStack.new
+    @out_stack = MyStack.new
   end
 
   def enqueue(el)
-    @store.size.times do
-      @hold_store.push(@store.pop)
-    end
-
-    @store.push(el)
-
-    @hold_store.size.times do
-      @store.push(@hold_store.pop)
-    end
-    el
+    @in_stack << el
   end
 
   def dequeue
-    @store.pop
+    queueify if @out_stack.empty?
+    @out_stack.pop
   end
 
   def size
@@ -29,7 +21,15 @@ class StackQueue
   end
 
   def empty?
-    @store.empty?
+    @in_stack.empty? && @out_stack.empty?
+  end
+
+  private
+
+  def queueify
+    until @in_stack.empty?
+      @out_stack << @in_stack.pop
+    end
   end
 
 end
