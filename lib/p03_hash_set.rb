@@ -9,7 +9,7 @@ class HashSet
   end
 
   def insert(key)
-    resize! if count > num_buckets
+    resize! if count == num_buckets
     @store[self[key]] << key
     @count += 1
   end
@@ -34,16 +34,10 @@ class HashSet
   end
 
   def resize!
-    new_num = num_buckets * 2
-    new_array = Array.new(new_num) { Array.new }
+    old_store = @store
+    @count = 0
+    @store = Array.new(num_buckets * 2) { Array.new }
 
-    @store.each do |bucket|
-      bucket.each do |el|
-        new_index = el.hash % new_num
-        new_array[new_index] << el
-      end
-    end
-
-    @store = new_array
+    old_store.flatten.each { |key| insert(key) }
   end
 end
