@@ -25,5 +25,6 @@ def fancy_windowed_range(array, window_size)
     new_range = window.max - window.min
     max_range = new_range if new_range > max_range
   end
+  
   max_range
 end
