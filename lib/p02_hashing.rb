@@ -6,6 +6,7 @@ class Array
   def hash
     each_with_index.inject(0) do |intermediate_hash, (el, i)|
       (el.hash + i.hash) ^ intermediate_hash
+    end
   end
 
 end
