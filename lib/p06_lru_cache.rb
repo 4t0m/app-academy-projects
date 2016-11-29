@@ -16,7 +16,7 @@ class LRUCache
 
   def get(key)
     if @map.include?(key)
-      link = @map.get(key)
+      link = @map[key]
       update_link!(link)
       link.val
     else
@@ -31,7 +31,6 @@ class LRUCache
   private
 
   def calc!(key)
-    # suggested helper method; insert an (un-cached) key
     val = @prc.call(key)
     link = @store.append(key, val)
     @map.set(key, link)
@@ -40,8 +39,7 @@ class LRUCache
   end
 
   def update_link!(link)
-    # suggested helper method; move a link to the end of the list
-    @store.remove(link.key)
+    link.remove
     @store.append(link.key, link.val)
   end
 
@@ -49,5 +47,6 @@ class LRUCache
     first_key = @store.first.key
     @store.remove(first_key)
     @map.delete(first_key)
+    nil
   end
 end
