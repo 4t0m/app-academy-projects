@@ -244,21 +244,11 @@ def craiglockhart_to_sighthill
     JOIN
       routes finish ON leg2.company = finish.company
         AND leg2.num = finish.num
+    JOIN
+      stops origin ON start.stop_id = origin.id
+    JOIN
+      stops destination ON finish.stop_id = destination.id
     WHERE
-      start.stop_id = (
-        SELECT
-          id
-        FROM
-          stops
-        WHERE
-          name = 'Craiglockhart'
-      ) AND finish.stop_id = (
-        SELECT
-          id
-        FROM
-          stops
-        WHERE
-          name = 'Sighthill'
-      )
+      origin.name = 'Craiglockhart' AND destination.name = 'Sighthill'
   SQL
 end
