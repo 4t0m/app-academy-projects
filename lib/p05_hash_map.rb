@@ -13,11 +13,11 @@ class HashMap
   end
 
   def include?(key)
-    @store[bucket(key)].include?(key)
+    bucket(key).include?(key)
   end
 
   def set(key, val)
-    relevant_list = @store[bucket(key)]
+    relevant_list = bucket(key)
     if relevant_list.include?(key)
       relevant_list.update(key, val)
     else
@@ -28,13 +28,13 @@ class HashMap
   end
 
   def get(key)
-    @store[bucket(key)].get(key)
+    bucket(key).get(key)
   end
 
   def delete(key)
     if include?(key)
       @count -= 1
-      @store[bucket(key)].remove(key)
+      bucket(key).remove(key)
     end
   end
 
@@ -77,6 +77,6 @@ class HashMap
   end
 
   def bucket(key)
-    key.hash % num_buckets
+    @store[key.hash % num_buckets]
   end
 end

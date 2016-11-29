@@ -15,10 +15,12 @@ class Link
   end
 
   def remove
-    # optional but useful, connects previous link to next link
-    # and removes self from list.
-    @next.prev = @prev unless @next.nil?
-    @prev.next = @next unless @prev.nil?
+    self.prev.next = self.next if self.prev
+    self.next.prev = self.prev if self.next
+    self.next = nil
+    self.prev = nil
+    self
+
   end
 
 end
@@ -26,8 +28,10 @@ end
 class LinkedList
   include Enumerable
   def initialize
-    @head = nil
-    @tail = nil
+    @head = Link.new
+    @tail = Link.new
+    @head.next = @tail
+    @tail.prev = @head
   end
 
   def [](i)
@@ -36,15 +40,15 @@ class LinkedList
   end
 
   def first
-    @head
+    empty? ? nil : @head.next
   end
 
   def last
-    @tail
+    empty? ? nil : @tail.prev
   end
 
   def empty?
-    @head.nil?
+    @head.next == @tail
   end
 
   def get(key)
@@ -58,14 +62,14 @@ class LinkedList
   end
 
   def append(key, val)
-    new_last = Link.new(key, val)
-    if last.nil?
-      @head = new_last
-    else
-      @tail.next = new_last
-      new_last.prev = last
-    end
-    @tail = new_last
+    new_link = Link.new(key, val)
+
+    @tail.prev.next = new_link
+    new_link.prev = @tail.prev
+    new_link.next = @tail
+    @tail.prev = new_link
+
+    new_link
   end
 
   def update(key, val)
@@ -74,30 +78,23 @@ class LinkedList
 
   def remove(key)
     each do |link|
-      next unless link.key == key
-      if link == @head && @head.next.nil?
-        @head, @tail = nil, nil
-      elsif link == @head
-        @head = @head.next
-        @head.prev = nil
-      elsif link == @tail
-        @tail = @tail.prev
-        @tail.next = nil
-      else
+      if link.key == key
         link.remove
+        return link.val
       end
     end
+
+    nil
   end
 
   def each(&prc)
-    current_link = first
-    until current_link.nil?
+    current_link = @head.next
+    until current_link == @tail
       prc.call(current_link)
       current_link = current_link.next
     end
   end
 
-  # uncomment when you have `each` working and `Enumerable` included
   def to_s
     inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
   end
