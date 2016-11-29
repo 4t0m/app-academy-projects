@@ -203,7 +203,7 @@ def expensive_tastes
   execute(<<-SQL)
   SELECT
     styles.style,
-    (SUM(album_track_counts.price) / SUM(album_track_counts.count))
+    (SUM(track_counts.price) / SUM(track_counts.count))
   FROM
     styles
   JOIN (
@@ -217,11 +217,11 @@ def expensive_tastes
       albums.price IS NOT NULL
     GROUP BY
       albums.asin
-    ) AS album_track_counts ON styles.album = album_track_counts.asin
+    ) AS track_counts ON styles.album = track_counts.asin
   GROUP BY
     styles.style
   ORDER BY
-    (SUM(album_track_counts.price) / SUM(album_track_counts.count)) DESC
+    (SUM(track_counts.price) / SUM(track_counts.count)) DESC
   LIMIT 5
   SQL
 end
