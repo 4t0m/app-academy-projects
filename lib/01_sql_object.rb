@@ -114,6 +114,5 @@ class SQLObject
 
   def save
     self.class.find(id).nil? ? insert : update
-
   end
 end
