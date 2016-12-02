@@ -53,6 +53,9 @@ module Associatable
 
   def has_many(name, options = {})
     options = HasManyOptions.new(name, self.to_s, options)
+    assoc_options_many[name] ||= []
+    assoc_options_many[name] << options
+
     define_method(name) do
       model_class = options.model_class
       foreign_key = options.send(:foreign_key)
@@ -64,6 +67,10 @@ module Associatable
 
   def assoc_options
     @assoc_options ||= {}
+  end
+
+  def assoc_options_many
+    @assoc_options_many ||= {}
   end
 end
 
