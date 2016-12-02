@@ -10,11 +10,11 @@ class AssocOptions
   )
 
   def model_class
-    # ...
+    class_name.to_s.constantize
   end
 
   def table_name
-    # ...
+    model_class.table_name
   end
 end
 
