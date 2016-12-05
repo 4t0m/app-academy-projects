@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    render text: "I'm in the index action!"
+    render json: User.all
   end
 end
