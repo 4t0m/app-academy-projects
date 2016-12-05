@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     :contacts,
     only: [:create, :destroy, :show, :update]
   )
+
+  resources :contact_shares, only: [:create, :destroy]
 end
