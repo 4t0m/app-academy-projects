@@ -29,4 +29,12 @@ def create_user(name, email)
   )
 end
 
-create_user("Gizmo", "gizmo@gizmo.gizmo")
+#create_user("Gizmo", "gizmo@gizmo.gizmo")
+
+begin
+  create_user("Anonymous person")
+rescue ArgumentError
+  puts "Nope; we'll need your email!"
+end
+
+create_user("Other", "other@other.other")
