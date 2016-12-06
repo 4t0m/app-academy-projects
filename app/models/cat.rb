@@ -18,6 +18,8 @@ class Cat < ActiveRecord::Base
   validates :name, uniqueness: true
   validate :valid_sex
 
+  has_many :cat_rental_requests
+
 
   def age
     ((Time.now.year * 12 + Time.now.month) -
