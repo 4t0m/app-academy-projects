@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
   def index
-    @cats = Cat.all
+    @cats = Cat.all.order(:id)
     render :index
   end
 
