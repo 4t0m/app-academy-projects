@@ -20,8 +20,8 @@ class Cat < ActiveRecord::Base
 
 
   def age
-    (Time.now.year * 12 + Time.now.month) -
-      (birth_date.year * 12 + birth_date.month) / 12
+    ((Time.now.year * 12 + Time.now.month) -
+      (birth_date.year * 12 + birth_date.month)) / 12
   end
 
   private
