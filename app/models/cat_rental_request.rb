@@ -21,7 +21,7 @@ class CatRentalRequest < ActiveRecord::Base
   private
 
   def status_string
-    unless ["PENDING", "APPROVED", "DENIED"].include?(staus)
+    unless ["PENDING", "APPROVED", "DENIED"].include?(status)
       errors[:status] << "must be 'PENDING', 'APPROVED', or 'DENIED' "
     end
   end
