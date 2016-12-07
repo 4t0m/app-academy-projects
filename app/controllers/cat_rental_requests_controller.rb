@@ -1,9 +1,5 @@
 class CatRentalRequestsController < ApplicationController
 
-  def index
-
-  end
-  
   def new
     @cat_rental_request = CatRentalRequest.new
     render :new
@@ -19,6 +15,21 @@ class CatRentalRequestsController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def approve
+    @cat_rental_request = CatRentalRequest.find(params[:request_id])
+    @cat_rental_request.approve!
+    redirect_to cat_url(Cat.find(@cat_rental_request.cat_id))
+  end
+
+  def deny
+    @cat_rental_request = CatRentalRequest.find(params[:request_id])
+    @cat_rental_request.deny!
+    redirect_to cat_url(Cat.find(@cat_rental_request.cat_id))
+  end
+
   private
 
   def cat_rental_request_params
@@ -26,5 +37,4 @@ class CatRentalRequestsController < ApplicationController
       .require(:cat_rental_request)
       .permit(:cat_id, :start_date, :end_date, :status)
   end
-
 end
