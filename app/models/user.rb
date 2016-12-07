@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :user_name, :password_digest, uniqueness: true, presence: true
   after_initialize :ensure_session_token
 
-  def ensure_session_token!
+  def ensure_session_token
     @session_token ||= SecureRandom.base64(128)
   end
 
@@ -29,5 +29,16 @@ class User < ActiveRecord::Base
 
   def password
     @password
+  end
+
+  def is_password?(password)
+    bc_obj = BCrypt::Password.new(password_digest)
+    bc_obj.is_password?(password)
+  end
+
+  def self.find_by_credentials(user_name, password)
+    user = User.find_by(user_name: user_name)
+    return nil if user.nil?
+    user.is_password?(password) ? user : nil
   end
 end
