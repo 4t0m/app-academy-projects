@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
 	def create
-		current_user.reset_session_token!
-		session[:session_token] = current_user.session_token
-		redirect_to user_url(current_user)
+		user = User.find_by_credentials(session_params[:email], session_params[:password])
+		log_in_user!(user)
+		redirect_to user_url(user)
 	end
 
 	def new
@@ -11,7 +11,18 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:session_token] = nil
+		if current_user
+			current_user.reset_session_token!
+			session[:session_token] = nil
+		end
 		redirect_to new_sessions_url
 	end
+
+
+	private
+
+  def session_params
+    params.require(:user)
+      .permit(:email, :password)
+  end
 end
