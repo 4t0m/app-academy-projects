@@ -3,34 +3,40 @@
 # Table name: cats
 #
 #  id          :integer          not null, primary key
-#  birth_date  :date
-#  color       :string
+#  birth_date  :date             not null
+#  color       :string           not null
 #  name        :string           not null
-#  sex         :string(1)
+#  sex         :string(1)        not null
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 
+require 'action_view'
+
 class Cat < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper
 
-  validates :color, :name, presence: true
-  validates :name, uniqueness: true
-  validate :valid_sex
+  CAT_COLORS = %w(black white orange brown)
 
-  has_many :cat_rental_requests
+  has_many(
+    :rental_requests,
+    class_name: "CatRentalRequest",
+    dependent: :destroy
+  )
 
+  validates(
+    :birth_date,
+    :color,
+    :name,
+    :sex,
+    presence: true
+  )
+
+  validates :color, inclusion: CAT_COLORS
+  validates :sex, inclusion: %w(M F)
 
   def age
-    ((Time.now.year * 12 + Time.now.month) -
-      (birth_date.year * 12 + birth_date.month)) / 12
-  end
-
-  private
-
-  def valid_sex
-    unless sex == "M" || sex == "F"
-      errors[:sex] << "must be 'M' or 'F' "
-    end
+    time_ago_in_words(birth_date)
   end
 end

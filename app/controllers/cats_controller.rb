@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
   def index
-    @cats = Cat.all.order(:id)
+    @cats = Cat.all
     render :index
   end
 
@@ -16,10 +16,10 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
-
     if @cat.save
       redirect_to cat_url(@cat)
     else
+      flash.now[:errors] = @cat.errors.full_messages
       render :new
     end
   end
@@ -31,10 +31,10 @@ class CatsController < ApplicationController
 
   def update
     @cat = Cat.find(params[:id])
-
-    if @cat.update(cat_params)
+    if @cat.update_attributes(cat_params)
       redirect_to cat_url(@cat)
     else
+      flash.now[:errors] = @cat.errors.full_messages
       render :edit
     end
   end
@@ -42,6 +42,7 @@ class CatsController < ApplicationController
   private
 
   def cat_params
-    params.require(:cat).permit(:name, :color, :sex, :birth_date, :description)
+    params.require(:cat)
+      .permit(:age, :birth_date, :color, :description, :name, :sex)
   end
 end

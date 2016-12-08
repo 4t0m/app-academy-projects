@@ -1,12 +1,14 @@
-Rails.application.routes.draw do
-
-  resources :cats
-
-  resources :cat_rental_requests do
-    post 'approve', on: :member
-    post 'deny', on: :member
+NinetyNineCatsDay1::Application.routes.draw do
+  resources :cats, except: :destroy
+  resources :cat_rental_requests, only: [:create, :new] do
+    post "approve", on: :member
+    post "deny", on: :member
   end
 
-  resources :cat_rental_requests, only: [:new, :create, :index, :show]
+  root to: redirect("/cats")
 
+  resources :users, only: [:new, :create, :show]
+
+  resource :sessions, only: [:new, :create]
+  delete "/sessions", to: "sessions#destroy", as: "logout"
 end

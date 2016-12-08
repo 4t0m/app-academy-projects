@@ -1,43 +1,58 @@
-<% if cat.persisted? %>
-  <% action_url = cat_url(cat) %>
-<% else %>
-  <% action_url = cats_url %>
-<% end %>
+<% action = (cat.persisted? ? cat_url(cat) : cats_url) %>
+<% method = (cat.persisted? ? :patch : :post) %>
 
-<form action="<%= action_url %>" method="post">
-  <% if cat.persisted? %>
-    <input type="hidden" name="_method" value="PATCH">
-  <% end %>
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
 
-  <label for="name">Name</label>
-  <input id="name" type="text" name="cat[name]" value="<%= cat.name %>">
+  <label for="cat_name">Name</label>
+  <input
+    type="text"
+    name="cat[name]"
+    id="cat_name"
+    value="<%= cat.name %>">
 
-  <label for="sex">Sex</label>
-  <input id="sex_m" type="radio" name="cat[sex]" value="M" <%= cat.sex == "M" ? "checked" : "" %>>
-  <label for="sex_m">M</label>
-  <input id="sex_f" type="radio" name="cat[sex]" value="F" <%= cat.sex == "F" ? "checked" : "" %>>
-  <label for="sex_f">F</label>
+  <label for="cat_birth_date">Birth date</label>
+  <input
+    type="date"
+    name="cat[birth_date]"
+    id="cat_birth_date"
+    value="<%= cat.birth_date %>">
+  <br>
 
-  <label for="color">Color</label>
-  <select id="color" name="cat[color]">
-    <option disabled <%= cat.color ? "" : "selected" %>>-- Please Select Color --</option>
-    <option value="Black" <%= cat.color == "Black" ? "selected" : "" %>>Black</option>
-    <option value="White" <%= cat.color == "White" ? "selected" : "" %>>White</option>
-    <option value="Calico" <%= cat.color == "Calico" ? "selected" : "" %>>Calico</option>
-    <option value="Tortoiseshell" <%= cat.color == "Tortoiseshell" ? "selected" : "" %>>Tortoiseshell</option>
-    <option value="Russian Blue" <%= cat.color == "Russian Blue" ? "selected" : "" %>>Russian Blue</option>
-    <option value="Muted Calico" <%= cat.color == "Muted Calico" ? "selected" : "" %>>Muted Calico</option>
-    <option value="Tuxedo" <%= cat.color == "Tuxedo" ? "selected" : "" %>>Tuxedo</option>
-    <option value="Tabby" <%= cat.color == "Tabby" ? "selected" : "" %>>Tabby</option>
-    <option value="Siamese" <%= cat.color == "Siamese" ? "selected" : "" %>>Siamese</option>
-    <option value="Other" <%= cat.color == "Other" ? "selected" : "" %>>Other</option>
+  <label for="cat_color">Color</label>
+  <select name="cat[color]" id="cat_color">
+    <option></option>
+    <% Cat::CAT_COLORS.each do |color| %>
+      <option
+        <%= cat.color == color ? "selected" : "" %>
+        value="<%= color %>">
+        <%= color.upcase %>
+      </option>
+    <% end %>
   </select>
+  <br>
 
-  <label for="birth_date">Birth Date</label>
-  <input id="birth_date" type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+  <input
+    type="radio"
+    name="cat[sex]"
+    value="M"
+    id="cat_sex_male"
+    <%= cat.sex == "M" ? "checked" : "" %>>
+  <label for="cat_sex_male">Male</label>
+  <input
+    type="radio"
+    name="cat[sex]"
+    value="F"
+    id="cat_sex_female"
+    <%= cat.sex == "F" ? "checked" : "" %>>
+  <label for="cat_sex_female">Female</label>
+  <br>
 
-  <label for="description">Description</label>
-  <textarea name="cat[description]"><%= cat.description %></textarea>
+  <label>
+    Description
+    <textarea name="cat[description]"><%= cat.description %></textarea>
+  </label>
 
-  <input type="submit" value=<%= cat.persisted? ? "Update Cat" : "Add Cat" %>>
+  <% submit_text = (cat.persisted? ? 'Update' : 'Create') + ' cat!' %>
+  <input type="submit" value="<%= submit_text %>">
 </form>
