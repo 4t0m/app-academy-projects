@@ -1,7 +1,7 @@
 class Album < ActiveRecord::Base
 
-	belongs_to :band, dependent: :destroy
-	has_many :tracks
+	belongs_to :band
+	has_many :tracks, dependent: :destroy
 
 	def live
 		self.recording_env == 'Live'
