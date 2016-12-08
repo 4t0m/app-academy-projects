@@ -15,6 +15,29 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def edit
+    @album = Album.find(params[:id])
+    render :edit
+  end
+
+  def update
+  end
+
+  def show
+    @album = Album.find(params[:id])
+    @band = Band.find(@album.band_id)
+    render :show
+  end
+
+  def destroy
+    @album = Album.find(params[:id])
+    @band = Band.find(@album.band_id)
+    @album.destroy
+    # redirect_to band_url(@band)
+    redirect_to band_url(@band), status: 303
+
+  end
+
   private
 
   def album_params

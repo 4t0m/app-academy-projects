@@ -6,7 +6,9 @@
   <%= render @albums %>
 </ul>
 
-<%= link_to "Add Album", new_band_album_url(@band) %>
-<%= link_to "Edit Band", edit_band_url(@band) %>
-<%= button_to "Delete Band", band_url(@band), method: :destroy %>
-<%= link_to "View All Bands", bands_url %>
+<ul>
+  <li><%= link_to "Add Album", new_band_album_url(@band) %></li>
+  <li><%= link_to "Edit Band", edit_band_url(@band) %></li>
+  <li><%= button_to "Delete Band", band_url(@band), method: :destroy %></li>
+  <li><%= link_to "View All Bands", bands_url %></li>
+</ul>
