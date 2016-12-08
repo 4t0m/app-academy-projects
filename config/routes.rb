@@ -9,5 +9,6 @@ NinetyNineCatsDay1::Application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  resources :session, only: [:new, :create, :destroy]
+  resource :sessions, only: [:new, :create]
+  delete "/sessions", to: "sessions#destroy", as: "logout"
 end

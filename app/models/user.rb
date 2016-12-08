@@ -15,11 +15,12 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   def ensure_session_token
-    @session_token ||= SecureRandom.base64(128)
+    self.session_token ||= SecureRandom.base64(128)
   end
 
   def reset_session_token!
-    @session_token = SecureRandom.base64(128)
+    self.session_token = SecureRandom.base64(128)
+    self.save!
   end
 
   def password=(password)
