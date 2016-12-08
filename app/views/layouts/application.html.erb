@@ -5,6 +5,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if current_user %>
+  		<h3><%= current_user.email %></h3>
+  	  <%= button_to session_url, method: :delete %>
+    <% end %>
+	</header>
 
 <%= yield %>
 
