@@ -20,6 +20,8 @@ class BandsController < ApplicationController
   end
 
   def edit
+    @band = Band.find(params[:id])
+    render :edit
   end
 
   def show
@@ -28,9 +30,19 @@ class BandsController < ApplicationController
   end
 
   def update
+    @band = Band.find(params[:id])
+    if @band.update(band_params)
+      redirect_to band_url(@band)
+    else
+      flash[:errors] = @band.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
+    @band = Band.find(params[:id])
+    @band.destroy
+    redirect_to bands_url
   end
 
   private
