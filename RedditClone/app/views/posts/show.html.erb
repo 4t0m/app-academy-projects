@@ -1,0 +1,7 @@
+<h1><%= @post.url ? @post.title : link_to "#{@post.title}", @post.url %></h1>
+
+<%= @post.content %>
+
+<%= button_to "Delete Post", post_url(@post), method: :delete %>
+<%= button_to "Edit Post", edit_post_url(@post), method: :get %>
+<%= button_to "All Posts", posts_url, method: :get %>
