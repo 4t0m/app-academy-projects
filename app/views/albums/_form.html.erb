@@ -2,6 +2,12 @@
 <% http_method = album.persisted? ? "PATCH" : "POST" %>
 <% button_text = album.persisted? ? "Update Album!" : "Create Album!" %>
 
+<% if @album.errors.full_messages %>
+  <% @album.errors.full_messages.each do |error_msg| %>
+    <div><%= error_msg %></div>
+  <% end %>
+<% end %>
+
 <form action="<%= action_url %>" method="POST">
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input
