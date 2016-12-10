@@ -14,9 +14,9 @@
 
 class Post < ActiveRecord::Base
   validates :title, :author_id, presence: true
-  validates :subs, length: { minimum: 1}
+  # validates :subs, length: { minimum: 1}
 
-  has_many :post_subs
+  has_many :post_subs, dependent: :destroy, inverse_of: :post
   has_many :subs, through: :post_subs
 
   belongs_to :author,

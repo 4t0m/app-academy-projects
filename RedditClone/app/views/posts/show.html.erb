@@ -1,4 +1,9 @@
-<h1><%= @post.url ? @post.title : link_to "#{@post.title}", @post.url %></h1>
+<% if @post.url %>
+  <%= link_to "#{@post.title}", @post.url %>
+<% else %>
+  <h1><%= @post.title %></h1>
+<% end %>
+
 
 <%= @post.content %>
 
