@@ -1,19 +1,17 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe User do
 	subject(:user) do
 		FactoryGirl.build(:user,
-											name: "jonathan",
+											username: "jonathan",
 											password: "good_password")
 	end
 
-	it { should validate_presence_of(:name) }
+	it { should validate_presence_of(:username) }
 	it { should validate_presence_of(:password_digest) }
 	it { should validate_length_of(:password).is_at_least(6) }
 
-	it { should have_many(:subs) }
-	it { should have_many(:user_votes) }
-	it { should have_many(:comments) }
 
 	it "creates a password digest when a password is given" do
 		expect(user.password_digest).to_not be_nil
@@ -53,4 +51,5 @@ describe ".find_by_credentials" do
 	it "returns nil given bad credentials" do
 		expect(User.find_by_credentials("jonathan", "bad_password")).to eq(nil)
 	end
+end
 end
