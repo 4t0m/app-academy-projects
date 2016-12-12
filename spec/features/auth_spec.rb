@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
+
 feature "the signup process" do
   scenario "has a new user page" do
     visit new_user_url
