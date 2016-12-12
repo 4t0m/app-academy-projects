@@ -37,7 +37,7 @@ group :test do
 	gem 'capybara'
 	gem 'guard-rspec'
 	gem 'launchy'
-	gem 'shoulda-matchers'
+	gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development, :test do
@@ -57,4 +57,3 @@ group :development do
 	gem 'annotate'
 	gem 'binding_of_caller'
 end
-
