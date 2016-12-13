@@ -8,25 +8,43 @@ class ControllerBase
 
   # Setup the controller
   def initialize(req, res)
+    @req = req
+    @res = res
+    @already_built_response = false
   end
 
   # Helper method to alias @already_built_response
   def already_built_response?
+    @already_built_response
+  end
+
+  def validate_not_built
+    raise "You can't render twice." if already_built_response?
+    @already_built_response = true
   end
 
   # Set the response status code and header
   def redirect_to(url)
+    validate_not_built
+
+    @res.header["location"] = url
+    @res.status = 302
   end
 
   # Populate the response with content.
   # Set the response's content type to the given type.
   # Raise an error if the developer tries to double render.
   def render_content(content, content_type)
+    validate_not_built
+
+    @res['Content-Type'] = content_type
+    @res.write(content)
   end
 
   # use ERB and binding to evaluate templates
   # pass the rendered html to render_content
   def render(template_name)
+
   end
 
   # method exposing a `Session` object
@@ -37,4 +55,3 @@ class ControllerBase
   def invoke_action(name)
   end
 end
-
