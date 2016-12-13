@@ -31,9 +31,7 @@ class ControllerBase
     @res.status = 302
 
     session.store_session(@res)
-    flash.store_flash(@res)
 
-    nil
   end
 
   # Populate the response with content.
@@ -46,9 +44,6 @@ class ControllerBase
     @res.write(content)
 
     session.store_session(@res)
-    flash.store_flash(@res)
-
-    nil
   end
 
   # use ERB and binding to evaluate templates
@@ -71,6 +66,7 @@ class ControllerBase
 
   # method exposing a `Session` object
   def session
+    @session ||= Session.new(@req)
   end
 
   # use this with the router to call action_name (:index, :show, :create...)

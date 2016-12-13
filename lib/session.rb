@@ -5,7 +5,7 @@ class Session
   # deserialize the cookie into a hash
   def initialize(req)
     cookie = req.cookies["_rails_lite_app"]
-    @data = cookie ? JSON.parse(cookie) : {}
+    @data = (cookie ? JSON.parse(cookie) : {})
   end
 
   def [](key)
