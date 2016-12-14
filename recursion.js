@@ -106,10 +106,78 @@ function bsearch(array, target) {
   }
 }
 
-console.log(bsearch([0], 1));
-console.log(bsearch([2, 3, 4, 5], 3));
-console.log(bsearch([2, 4, 6, 8, 10], 6));
-console.log(bsearch([1, 3, 4, 5, 9], 5));
-console.log(bsearch([1, 2, 3, 4, 5, 6], 6));
-console.log(bsearch([1, 2, 3, 4, 5, 6], 0));
-console.log(bsearch([1, 2, 3, 4, 5, 7], 6));
+// console.log(bsearch([0], 1));
+// console.log(bsearch([2, 3, 4, 5], 3));
+// console.log(bsearch([2, 4, 6, 8, 10], 6));
+// console.log(bsearch([1, 3, 4, 5, 9], 5));
+// console.log(bsearch([1, 2, 3, 4, 5, 6], 6));
+// console.log(bsearch([1, 2, 3, 4, 5, 6], 0));
+// console.log(bsearch([1, 2, 3, 4, 5, 7], 3));
+
+function makeChange(target, coins) {
+  let bestChange = [];
+
+  for (let i = 0; i < coins.length; i++) {
+    if (coins[i] <= target) {
+      let remainder = target - coins[i];
+      let currentChange = [coins[i]].concat(makeChange(remainder, coins));
+      if (currentChange.length < bestChange.length || bestChange.length === 0) {
+        bestChange = currentChange;
+      }
+    }
+  }
+  return bestChange;
+}
+//
+// console.log(makeChange(14, [10, 7, 1]));
+// console.log(makeChange(24, [10, 7, 1]));
+// console.log(makeChange(13, [10, 7, 1]));
+// console.log(makeChange(20, [10, 7, 1]));
+// console.log(makeChange(1, [10, 7, 2]));
+// console.log();
+
+
+function mergeSort(array) {
+  if (array.length < 2) {
+    return array;
+  } else {
+    let mid =  Math.floor(array.length / 2);
+    let left = array.slice(0, mid);
+    let right = array.slice(mid, array.length);
+    console.log(right);
+    return merge(mergeSort(left), mergeSort(right));
+  }
+}
+
+function merge(left, right) {
+  console.log(right);
+  let merged = [];
+
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] > right[0]) {
+      merged.push(right.shift());
+    } else {
+      merged.push(left.shift());
+    }
+  }
+  return merged.concat(left, right);
+}
+//
+// console.log(mergeSort([1,4,6,0]));
+// console.log(mergeSort([1,4,2,3,5,6,0]));
+
+function subSets(array) {
+  if (array.length === 0) {
+    return [[]];
+  } else {
+    let subsetRemainder = subSets(array.slice(1, array.length));
+    let allSubsets = [];
+    for (let i = 0; i < subsetRemainder.length; i++) {
+      allSubsets.push(subsetRemainder[i]);
+      allSubsets.push([array[0]].concat(subsetRemainder[i]));
+    }
+    return allSubsets;
+  }
+}
+
+console.log(subSets([1, 2, 3]));
