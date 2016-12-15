@@ -7,7 +7,7 @@ class Clock {
 
     this.printTime();
 
-    setInterval(this._tick.bind(this), 1000);
+    setInterval( () => this._tick(), 1000);
   }
 
   printTime() {
