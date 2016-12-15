@@ -11,8 +11,8 @@ class Game {
   }
 
   promptMove(callback) {
-    console.log(this.stacks);
-    reader.question("Enter your starting and ending stacks (eg. 1, 3): ", (response) => {
+    this.print();
+    reader.question("Enter your starting and ending stacks (eg. 0, 1): ", (response) => {
       let positions = response.split(', ');
       let startTowerIdx = parseInt(positions[0]);
       let endTowerIdx = parseInt(positions[1]);
@@ -38,15 +38,33 @@ class Game {
       return false;
     }
   }
+
+  print() {
+    console.log(JSON.stringify(this.stacks));
+  }
+
+  isWon() {
+    return this.stacks[1].length === 3 || this.stacks[2].length === 3;
+  }
+
+  run(completionCallBack) {
+
+    this.promptMove( (start, end) => {
+      if (this.move(start, end)) {
+        if (!this.isWon()) {
+          this.run(completionCallBack);
+        } else {
+          completionCallBack();
+          reader.close();
+        }
+      } else {
+        console.log("You can't do that.");
+        this.run(completionCallBack);
+      }
+    });
+  }
 }
 
 
 let game = new Game();
-console.log(game.move(0, 2));
-console.log(game.stacks);
-console.log(game.move(2, 1));
-console.log(game.stacks);
-console.log(game.move(2, 1));
-console.log(game.stacks);
-console.log(game.move(0, 1));
-console.log(game.stacks);
+game.run( () => console.log('You winnnnnn!'));
