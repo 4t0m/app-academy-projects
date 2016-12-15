@@ -1,18 +1,13 @@
-const readline = require("readline");
-
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 
 class Game {
-  constructor() {
+  constructor(reader, completionCallback) {
+    this.reader = reader;
     this.stacks = [[1, 2, 3], [], []];
   }
 
   promptMove(callback) {
     this.print();
-    reader.question("Enter your starting and ending stacks (eg. 0, 1): ", (response) => {
+    this.reader.question("Enter your starting and ending stacks (eg. 0, 1): ", (response) => {
       let positions = response.split(', ');
       let startTowerIdx = parseInt(positions[0]);
       let endTowerIdx = parseInt(positions[1]);
@@ -55,7 +50,6 @@ class Game {
           this.run(completionCallBack);
         } else {
           completionCallBack();
-          reader.close();
         }
       } else {
         console.log("You can't do that.");
@@ -65,6 +59,4 @@ class Game {
   }
 }
 
-
-let game = new Game();
-game.run( () => console.log('You winnnnnn!'));
+module.exports = Game;
