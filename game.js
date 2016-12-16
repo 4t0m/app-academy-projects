@@ -8,28 +8,29 @@ class Game {
   }
 
   run(reader, completionCallback, currentMark = "X") {
-
-    this.board.render();
-
-    let move = this.promptMove();
-    if (this.board.isEmpty(move)){
-      this.board.placeMark(move, currentMark);
-      if (this.board.won()) {
-        console.log(this.board.won + " wins!");
-        completionCallback();
+    this.promptMove( (pos) => {
+      if (this.board.isEmpty(pos)){
+        this.board.placeMark(pos, currentMark);
+        if (this.board.won()) {
+          this.board.render();
+          console.log(this.board.won() + " wins!");
+          completionCallback();
+        }else{
+          currentMark = (currentMark === "X" ? "O" : "X");
+          this.run(reader, completionCallback, currentMark);
+        }
       }else{
-        currentMark = (currentMark === "X" ? "O" : "X");
-        run(reader, completionCallback, currentMark);
+        console.log("nah bro");
+        this.run(reader, completionCallback, currentMark);
       }
-    }else{
-      console.log("nah bro");
-      run(reader, completionCallback, currentMark);
-    }
+    });
   }
 
-  promptMove() {
+  promptMove(callback) {
+    this.board.render();
     this.reader.question("Enter move (ex: 2, 0): ", (answer) => {
-      return answer.split(", ").map(el => parseInt(el));
+      let pos = answer.split(", ").map(el => parseInt(el));
+      callback(pos);
     });
   }
 }

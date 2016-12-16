@@ -10,8 +10,8 @@ const reader = readline.createInterface({
 const completionCallback = function() {
   reader.question("Would you like to play again? (yes/no): ", (answer) => {
     if (answer === "yes") {
-      let newGame = new Game(reader, completionCallback);
-      newGame.run(completionCallback);
+      let newGame = new Game(reader);
+      newGame.run(reader, completionCallback);
     }else{
       console.log("Bye");
       reader.close();
@@ -19,5 +19,5 @@ const completionCallback = function() {
   });
 };
 
-let game = new Game(reader, completionCallback);
-game.run(completionCallback);
+let game = new Game(reader);
+game.run(reader, completionCallback);

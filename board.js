@@ -1,6 +1,6 @@
 class Board {
   constructor() {
-    this.grid = [ new Array(3), new Array(3), new Array(3) ];
+    this.grid = [ [" ", " ", " "], [" ", " ", " "], [" ", " ", " "] ];
   }
 
   render() {
@@ -25,7 +25,10 @@ class Board {
   }
 
   isEmpty(pos) {
-    return (this.markAt(pos) === undefined);
+    if (pos.some( el => el > 2 || el < 0)) {
+      return false;
+    }
+    return (this.markAt(pos) === " ");
   }
 
   placeMark(pos, mark) {
@@ -39,27 +42,43 @@ class Board {
   }
 
   checkHorizontals() {
-    this.grid.forEach( (row) => {
-      if (row.every( (el) => el === "X" )) {
-        return "X";
-      } else if (row.every( (el) => el === "O" )) {
-        return "O";
-      } else {
-        return false;
+    let winner = false;
+    this.grid.forEach((row) => {
+      if (this.checkHorizontal(row)) {
+        winner = this.checkHorizontal(row);
       }
     });
+    return winner;
+  }
+
+  checkHorizontal(row) {
+    if (row.every( (el) => el === "X" )) {
+      return "X";
+    } else if (row.every( (el) => el === "O" )) {
+      return "O";
+    } else {
+      return false;
+    }
   }
 
   checkVerticals() {
+    let winner = false;
     [0, 1, 2].forEach( (colIdx) => {
-      if ([0, 1, 2].every( (rowIdx) => this.markAt([rowIdx, colIdx]) === "X")) {
-        return "X";
-      } else if ([0, 1, 2].every( (rowIdx) => this.markAt([rowIdx, colIdx]) === "O")) {
-        return "O";
-      } else {
-        return false;
+      if (this.checkVertical(colIdx)) {
+        winner = this.checkVertical(colIdx);
       }
     });
+    return winner;
+  }
+
+  checkVertical(colIdx) {
+    if ([0, 1, 2].every( (rowIdx) => this.markAt([rowIdx, colIdx]) === "X")) {
+      return "X";
+    } else if ([0, 1, 2].every( (rowIdx) => this.markAt([rowIdx, colIdx]) === "O")) {
+      return "O";
+    } else {
+      return false;
+    }
   }
 
   checkDiagonals() {
