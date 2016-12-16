@@ -3,6 +3,10 @@ class Board {
     this.grid = [ new Array(3), new Array(3), new Array(3) ];
   }
 
+  render() {
+    this.grid.forEach( row => console.log(row));
+  }
+
   won() {
     let checks = [this.checkHorizontals(), this.checkVerticals(), this.checkDiagonals()];
     if (checks.some( (el) => el === "X") ){
