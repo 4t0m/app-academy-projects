@@ -41,12 +41,16 @@ class View {
     let that = this;
     let row = Math.floor($square.attr('id')/3);
     let col = $square.attr('id') % 3;
-    this.game.playMove([row, col]);
-    $square.text(currentPlayer);
-    $square.addClass(`${currentPlayer}`);
-    if(that.game.isOver()){
-      let $winMsg = $(`<h2>${currentPlayer} WINS!</h2>`);
-      that.$el.append($winMsg);
+    if (this.game.board.isEmptyPos([row, col])) {
+      this.game.playMove([row, col]);
+      $square.text(currentPlayer);
+      $square.addClass(`${currentPlayer}`);
+      if(that.game.isOver()){
+        let $winMsg = $(`<h2>${currentPlayer} WINS!</h2>`);
+        that.$el.append($winMsg);
+      }
+    } else {
+      alert("Invalid move.  Pick an empty square!");
     }
   }
 
