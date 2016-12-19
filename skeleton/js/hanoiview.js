@@ -7,22 +7,24 @@ class HanoiView {
   }
 
   setupTowers(){
+    let $board = $("<container>");
     let $pile1 = $("<ul>");
     $pile1.attr("id", `pile1`);
-    $pile2.attr("id", `pile2`);
-    $pile3.attr("id", `pile3`);
-
     let $pile2 = $("<ul>");
+    $pile2.attr("id", `pile2`);
     let $pile3 = $("<ul>");
-    for(let i = 3; i <= 1; i--){
+    $pile3.attr("id", `pile3`);
+    for(let i = 1; i <= 3; i++){
       let $disk = $("<li>");
       $disk.attr("id", `disk${i}`);
 
       $pile1.append($disk);
+
     }
     this.$el.append($pile1);
     this.$el.append($pile2);
     this.$el.append($pile3);
+
   }
 
   render(){
@@ -33,10 +35,12 @@ class HanoiView {
         if (tower.includes(diskIdx) && $(`ul#pile${towerIdx} li#disk${diskIdx}`).length === 0) {
           $pile.append($disk);
         }
-        if (!tower.includes(diskIdx) && $(`ul#pile${towerIdx} li#disk${diskIdx}`).length === 1) {
-          $pile.remove($disk);
-        }
+        // if (!tower.includes(diskIdx) && $(`ul#pile${towerIdx} li#disk${diskIdx}`).length === 1) {
+        //   $pile.remove($disk);
+        // }
       }
     });
   }
 }
+
+module.exports = HanoiView;
