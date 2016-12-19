@@ -15,19 +15,21 @@ class View {
       const currentTarget = event.currentTarget;
       const $currentTarget = $(currentTarget);
 
-      $currentTarget.attr("style", "background-color: yellow");
+      $currentTarget.addClass("hovered");
       // event.addClass("hovered");
     },
       mouseleave: (event) => {
         const currentTarget = event.currentTarget;
         const $currentTarget = $(currentTarget);
 
-        $currentTarget.attr("style", "background-color: gray");
+        $currentTarget.removeClass("hovered");
       }
     });
 
-    $("li").on("click", (el) => {
-      el.addClass("clicked");
+    $("li").on("click", (event) => {
+      const currentTarget = event.currentTarget;
+      const $currentTarget = $(currentTarget);
+      $currentTarget.addClass("clicked");
       that.makeMove(el);
     });
   }
