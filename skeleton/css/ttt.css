@@ -16,3 +16,11 @@ li.hovered {
 li.clicked {
   background-color: white;
 }
+
+li.clicked.x {
+  color: red;
+}
+
+li.clicked.o {
+  color: blue;
+}

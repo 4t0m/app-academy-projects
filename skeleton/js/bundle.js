@@ -74,7 +74,10 @@
 
 	  bindEvents() {
 	    $("li").on("hover", (el) => el.addClass("hovered"));
-	    $("li").on("click", (el) => el.addClass("clicked"));
+	    $("li").on("click", (el) => {
+	      el.addClass("clicked");
+	      this.makeMove(el);
+	    });
 	  }
 
 	  makeMove($square) {}
