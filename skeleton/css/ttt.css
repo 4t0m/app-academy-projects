@@ -28,3 +28,10 @@ li.clicked.x {
 li.clicked.o {
   color: blue;
 }
+
+h2 {
+  clear: both;
+  text-align: center;
+  font-size: 75px;
+  width: 900px;
+}

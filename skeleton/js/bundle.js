@@ -74,34 +74,42 @@
 	  bindEvents() {
 	    let that = this;
 	    $("li").on({ mouseenter: (event) => {
+	      if (!that.game.isOver()) {
+	        const currentTarget = event.currentTarget;
+	        const $currentTarget = $(currentTarget);
+	        $currentTarget.addClass("hovered");
+	      }
+	    },
+	    mouseleave: (event) => {
 	      const currentTarget = event.currentTarget;
 	      const $currentTarget = $(currentTarget);
 
-	      $currentTarget.addClass("hovered");
-	    },
-	      mouseleave: (event) => {
-	        const currentTarget = event.currentTarget;
-	        const $currentTarget = $(currentTarget);
-
-	        $currentTarget.removeClass("hovered");
-	      }
-	    });
+	      $currentTarget.removeClass("hovered");
+	    }
+	  });
 
 	    $("li").on("click", (event) => {
+	      if (!that.game.isOver()) {
 	      const currentTarget = event.currentTarget;
 	      const $currentTarget = $(currentTarget);
 	      $currentTarget.addClass("clicked");
 	      that.makeMove($currentTarget);
+	    }
 	    });
 	  }
 
 	  makeMove($square) {
+	    let currentPlayer = this.game.currentPlayer;
 	    let that = this;
 	    let row = Math.floor($square.attr('id')/3);
 	    let col = $square.attr('id') % 3;
 	    this.game.playMove([row, col]);
-	    $square.text(this.game.currentPlayer);
-	    $square.addClass(`${that.game.currentPlayer}`);
+	    $square.text(currentPlayer);
+	    $square.addClass(`${currentPlayer}`);
+	    if(that.game.isOver()){
+	      let $winMsg = $(`<h2>${currentPlayer} WINS!</h2>`);
+	      that.$el.append($winMsg);
+	    }
 	  }
 
 	  setupBoard() {
