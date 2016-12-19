@@ -4,27 +4,48 @@ class View {
     this.$el = $el;
 
     this.setupBoard();
+    this.bindEvents();
   }
 
 
 
   bindEvents() {
-    $("li").on("hover", (el) => el.addClass("hovered"));
+    let that = this;
+    $("li").on({ mouseenter: (event) => {
+      const currentTarget = event.currentTarget;
+      const $currentTarget = $(currentTarget);
+
+      $currentTarget.attr("style", "background-color: yellow");
+      // event.addClass("hovered");
+    },
+      mouseleave: (event) => {
+        const currentTarget = event.currentTarget;
+        const $currentTarget = $(currentTarget);
+
+        $currentTarget.attr("style", "background-color: gray");
+      }
+    });
+
     $("li").on("click", (el) => {
       el.addClass("clicked");
-      this.makeMove(el);
+      that.makeMove(el);
     });
   }
 
-  makeMove($square) {}
+  makeMove($square) {
+
+    this.game.playMove($square);
+    this.game.swapTurn();
+  }
 
   setupBoard() {
-    let grid = $("<ul></ul>");
+    let $grid = $("<ul>");
     for(let i = 0; i < 9; i++){
-      const li = $("<li></li>");
-      grid.appendChild(li);
+      const $li = $("<li>");
+      $grid.append($li);
     }
 
+    this.$el.append($grid);
   }
 }
 
