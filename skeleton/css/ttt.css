@@ -17,6 +17,8 @@ li.hovered {
 
 li.clicked {
   background-color: white;
+  font-size: 150px;
+  text-align: center;
 }
 
 li.clicked.x {

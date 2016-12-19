@@ -16,7 +16,6 @@ class View {
       const $currentTarget = $(currentTarget);
 
       $currentTarget.addClass("hovered");
-      // event.addClass("hovered");
     },
       mouseleave: (event) => {
         const currentTarget = event.currentTarget;
@@ -30,20 +29,24 @@ class View {
       const currentTarget = event.currentTarget;
       const $currentTarget = $(currentTarget);
       $currentTarget.addClass("clicked");
-      that.makeMove(el);
+      that.makeMove($currentTarget);
     });
   }
 
   makeMove($square) {
-
-    this.game.playMove($square);
-    this.game.swapTurn();
+    let that = this;
+    let row = Math.floor($square.attr('id')/3);
+    let col = $square.attr('id') % 3;
+    this.game.playMove([row, col]);
+    $square.text(this.game.currentPlayer);
+    $square.addClass(`${that.game.currentPlayer}`);
   }
 
   setupBoard() {
     let $grid = $("<ul>");
     for(let i = 0; i < 9; i++){
       const $li = $("<li>");
+      $li.attr('id', i);
       $grid.append($li);
     }
 
