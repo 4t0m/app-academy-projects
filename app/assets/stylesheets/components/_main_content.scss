@@ -1,0 +1,45 @@
+.front-page-video {
+  display: flex;
+  flex-direction: column;
+}
+
+.front-page-video span {
+  margin: 10px 0;
+}
+
+.article-preview {
+  position: relative;
+  // border-top: 1px solid $light-gray;
+}
+
+.article-preview:before {
+  content : "";
+  position: absolute;
+  top: -7px;
+  left: 25%;
+  width: 50%;
+  border-top: 1px solid $light-gray;
+}
+
+.article-preview-title {
+  font-weight: 700;
+  font-size: 13px;
+  display: block;
+  margin: 5px 0;
+}
+
+.article-preview-title:hover {
+  text-decoration: underline;
+}
+
+.article-byline {
+  color: $gray;
+  font-size: 11px;
+  display: block;
+  margin: 5px 0;
+}
+
+.article-preview-content {
+  display: block;
+  margin: 10px 0;
+}
