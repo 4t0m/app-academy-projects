@@ -31,6 +31,15 @@ button:hover {
 	border-color:	$darkest-blue;
 }
 
+a:hover {
+	background-color: $lightest-gray;
+	text-decoration: underline;
+}
+
+image {
+	width: 375px;
+}
+
 /*
 	Header Rules
 */
