@@ -21,23 +21,43 @@ class HanoiView {
       $pile1.append($disk);
 
     }
-    this.$el.append($pile1);
-    this.$el.append($pile2);
-    this.$el.append($pile3);
+    let that = this;
+    [$pile1, $pile2, $pile3].forEach(function (tower){
 
+      that.$el.append(tower);
+      tower.on("click", (event) => {
+        const currentTarget = event.currentTarget;
+        const $currentTarget = $(currentTarget);
+
+        if (that.$originTower !== undefined) {
+          let $destinationTower = $currentTarget;
+          let originId = that.$originTower.attr("id"),
+              destinationId = $destinationTower.attr("id");
+
+          let originIndex = parseInt(originId.slice(originId.length - 1)),
+              destinationIndex = parseInt(destinationId.slice(destinationId.length - 1));
+
+          that.game.move(originIndex-1, destinationIndex-1);
+          that.render();
+          that.$originTower = undefined;
+        } else {
+          that.$originTower = $currentTarget;
+        }
+      });
+    });
   }
 
   render(){
     this.game.towers.forEach(function (tower, towerIdx) {
       for (let diskIdx = 1; diskIdx < 3; diskIdx++) {
         let $disk = $(`#disk${diskIdx}`);
-        let $pile = $(`#pile${towerIdx}`);
-        if (tower.includes(diskIdx) && $(`ul#pile${towerIdx} li#disk${diskIdx}`).length === 0) {
+        let $pile = $(`#pile${towerIdx + 1}`);
+        debugger;
+        if (tower.includes(diskIdx) && $(`ul#pile${towerIdx + 1} li#disk${diskIdx}`).length === 0) {
+          debugger;
           $pile.append($disk);
+          debugger;
         }
-        // if (!tower.includes(diskIdx) && $(`ul#pile${towerIdx} li#disk${diskIdx}`).length === 1) {
-        //   $pile.remove($disk);
-        // }
       }
     });
   }

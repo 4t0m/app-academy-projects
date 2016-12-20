@@ -5,4 +5,5 @@ $( () => {
   let $rootEl = $('.hanoi');
   let game = new HanoiGame();
   let hanoiView = new HanoiView(game, $rootEl);
+  window.hanoiView = hanoiView;
 });
