@@ -4,6 +4,10 @@
   padding: 8px 0;
 }
 
+.left-nav > ul {
+  margin-top: 7px;
+}
+
 .left-nav > ul,
 .right-nav > ul {
   display: flex;
@@ -14,6 +18,7 @@
   font-family: $sans-serif;
   font-size: 11px;
   text-transform: uppercase;
+  font-weight: 700;
   margin: 0 12px;
 }
 
