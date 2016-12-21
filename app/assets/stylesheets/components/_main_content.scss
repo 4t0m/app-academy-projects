@@ -1,3 +1,8 @@
+.content-section {
+  margin-top: 20px;
+}
+
+
 .front-page-video {
   display: flex;
   flex-direction: column;
@@ -9,13 +14,13 @@
 
 .article-preview {
   position: relative;
-  // border-top: 1px solid $light-gray;
+  padding-top: 10px;
 }
 
 .article-preview:before {
   content : "";
   position: absolute;
-  top: -7px;
+  top: 5px;
   left: 25%;
   width: 50%;
   border-top: 1px solid $light-gray;
@@ -25,7 +30,6 @@
   font-weight: 700;
   font-size: 13px;
   display: block;
-  margin: 5px 0;
 }
 
 .article-preview-title:hover {
@@ -36,12 +40,12 @@
   color: $gray;
   font-size: 11px;
   display: block;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .article-preview-content {
   display: block;
-  margin: 10px 0;
+  line-height: 16px;
 }
 
 h1 {
@@ -69,6 +73,10 @@ h1:hover  {
   list-style: none;
   text-decoration: underline;
   color: $blue;
+}
+
+.opinion-section section {
+  float: left;
 }
 
 .opinion-section-title {
@@ -102,8 +110,40 @@ h1:hover  {
 
 .thumbnail img {
   object-fit: cover;
+  height: 100px;
 }
 
 .sign-up-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-section div {
+  display: flex;
+  margin: 10px 0;
+}
+
+.sign-up-section div input {
+  flex: 1;
+  -webkit-appearance: text;
+  appearance: text;
+  border: 1px solid $gray;
+  padding: 3px;
+}
+
+.sign-up-section div button {
+  position: relative;
+  right: 2px;
+}
+
+.sign-up-section input:after {
+  content: "";
+}
+
+.fine-print {
+  text-align: center;
+  font-family: $sans-serif;
   display: block;
+  font-size: 9px;
+  color: $gray;
 }
