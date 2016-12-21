@@ -30,8 +30,11 @@ with a class attribute containing 'col-' */
   padding-right: 0;
 }
 
-@media all and (max-width: 1450px) {
+@media all and (max-width: 1200px) {
   [class*='col-'] {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

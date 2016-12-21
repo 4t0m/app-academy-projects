@@ -43,3 +43,30 @@
   display: block;
   margin: 10px 0;
 }
+
+h1 {
+  font-weight: 700;
+  font-size: 26px;
+  font-style: italic;
+}
+
+h1:hover  {
+  text-decoration: underline;
+}
+
+.header-article-content {
+  list-style: disc;
+  position: relative;
+  left: 16px;
+}
+
+.header-article-content li {
+  line-height: 18px;
+  margin: 10px 0;
+}
+
+.comments-link {
+  list-style: none;
+  text-decoration: underline;
+  color: $blue;
+}
