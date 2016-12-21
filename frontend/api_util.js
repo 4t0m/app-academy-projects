@@ -22,6 +22,11 @@ const APIUtil = {
       data: { query: queryVal},
       dataType: "JSON"
     }).then(success, (fail) => console.log(fail));
+  },
+
+  createTweet: (tweet) => {
+    let $feed = $("#feed");
+    $feed.append(tweet);
   }
 };
 

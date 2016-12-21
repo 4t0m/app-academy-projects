@@ -34,7 +34,8 @@ class UsersSearch {
     this.$ul.empty();
     users.forEach( user => {
       let $link = $(
-        `<li><a style="margin-right: 10px" href="/users/${user.id}">${user.username}</a></li>`);
+        `<li><a style="margin-right: 10px"
+                href="/users/${user.id}">${user.username}</a></li>`);
       $link.append(this.renderButton(user));
       this.$ul.append($link);
     });
