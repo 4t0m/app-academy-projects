@@ -22,7 +22,7 @@
 with a class attribute containing 'col-' */
 [class*='col-'] {
   // ...
-  padding-right: 50px;
+  padding-right: 40px;
 }
 
 [class*='col-']:last-of-type {
