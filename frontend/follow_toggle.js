@@ -5,25 +5,23 @@ class FollowToggle {
     this.$el = $(el);
     this.userId = this.$el.data("userId");
     this.followState = this.$el.data("initialFollowState");
-    this.$el.text(this.render());
+    this.render();
     this.$el.on("click", this.handleClick.bind(this));
   }
 
   render() {
     if (this.followState === "Following") {
-      this.followState = "Followed";
       this.$el.prop("disabled", true);
-      return "Following";
+      this.$el.text("Following");
     } else if (this.followState === "Unfollowing") {
-      this.followState = "Unfollowed";
       this.$el.prop("disabled", true);
-      return "Unfollowing";
+      this.$el.text("Unfollowing");
     } else {
       this.$el.prop("disabled", false);
       if (this.followState === "Unfollowed") {
-        return "Follow!";
+        this.$el.text("Follow!");
       } else {
-        return "Unfollow!";
+        this.$el.text("Unfollow!");
       }
     }
 
@@ -34,15 +32,14 @@ class FollowToggle {
 
     let nf = this.followState === "Followed" ? "Unfollowed" : "Followed";
     this.followState = nf === "Followed" ? "Following" : "Unfollowing";
-    this.$el.text(this.render());
+    this.render();
 
     const updateButton = () => {
       this.followState = nf;
-      this.$el.text(this.render());
+      this.render();
     };
 
-    console.log(this.followState);
-    if (this.followState === "Followed")
+    if (nf === "Followed")
       APIUtil.followUser(this.userId).then(updateButton);
     else
       APIUtil.unfollowUser(this.userId).then(updateButton);
