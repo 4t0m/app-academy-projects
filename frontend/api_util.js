@@ -15,23 +15,23 @@ const APIUtil = {
     });
   },
 
-  searchUsers: (queryVal, success) => {
+  searchUsers: queryVal => (
     $.ajax({
       url: "/users/search",
       type: "GET",
       data: { query: queryVal},
       dataType: "JSON"
-    }).then(success);
-  },
+    })
+  ),
 
-  createTweet: (tweet, success) => {
+  createTweet: tweet => (
     $.ajax({
       url: "/tweets",
       type: "POST",
       dataType: "JSON",
       data: tweet
-    }).then(success);
-  }
+    })
+  )
 };
 
 module.exports = APIUtil;

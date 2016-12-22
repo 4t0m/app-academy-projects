@@ -6,13 +6,13 @@ class UsersSearch {
     this.$el = $(el);
     this.$input = this.$el.find("input");
     this.$ul = this.$el.find("ul");
-    this.$input.on("input", this.handleInput.bind(this));
+    this.$input.on("input", (e) => this.handleInput(e));
   }
 
   handleInput(e) {
     let val = this.$input.val();
 
-    APIUtil.searchUsers(val, this.renderResults.bind(this));
+    APIUtil.searchUsers(val).then( (users) => this.renderResults(users));
   }
 
   renderButton(user) {
@@ -30,7 +30,6 @@ class UsersSearch {
   }
 
   renderResults(users) {
-    console.log(users);
     this.$ul.empty();
     users.forEach( user => {
       let $link = $(
