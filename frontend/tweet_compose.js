@@ -7,24 +7,24 @@ class TweetCompose {
     this.$el.on("submit", this.submit.bind(this));
   }
 
+  clearInput() {
+    this.$el.find('.user-input').val("");
+  }
+
+  handleSuccess(tweet) {
+    this.clearInput();
+    let $feed = $(this.$el.attr("data-tweets-ul"));
+    let $li = $("<li>");
+    $li.append(JSON.stringify(tweet));
+    $feed.prepend($li);
+  }
+
   submit(e) {
     e.preventDefault();
-    // console.log(e.currentTarget[1].value);
-    // console.log(e.currentTarget);
-    // console.log(e);
-    let $li = $("<li>");
-    let text = e.currentTarget[1].value;
-    let mentionId = e.currentTarget[2].value;
-    $li.text(text);
 
-    if (mentionId) {
-      let $anchor = $("<a>");
-      $anchor.attr("href", `/users/${mentionId}`);
-      $anchor.text("mentioned user");
-      $li.append($anchor);
-    }
+    let form = $('.tweet-compose').serializeJSON();
 
-    APIUtil.createTweet($li);
+    APIUtil.createTweet(form, this.handleSuccess.bind(this));
   }
 }
 

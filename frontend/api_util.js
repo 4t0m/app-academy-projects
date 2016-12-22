@@ -21,12 +21,16 @@ const APIUtil = {
       type: "GET",
       data: { query: queryVal},
       dataType: "JSON"
-    }).then(success, (fail) => console.log(fail));
+    }).then(success);
   },
 
-  createTweet: (tweet) => {
-    let $feed = $("#feed");
-    $feed.append(tweet);
+  createTweet: (tweet, success) => {
+    $.ajax({
+      url: "/tweets",
+      type: "POST",
+      dataType: "JSON",
+      data: tweet
+    }).then(success);
   }
 };
 
