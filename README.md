@@ -1,4 +1,4 @@
 # jQuery Lite
 
-Implementation of the following jQuery features, using vanilla JavaScript:
+Implementation of various jQuery features using vanilla JavaScript.
 
