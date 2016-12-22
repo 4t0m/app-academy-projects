@@ -6,6 +6,7 @@ class TweetCompose {
     this.$el.on("submit", (e) => this.submit(e));
     this.$textarea = this.$el.find('textarea.user-input');
     this.$textarea.on("input", (e) => this.updateCount(e));
+    $('.add-mentioned-user').on("click", () => this.addMentionedUser());
   }
 
   updateCount(e) {
@@ -30,6 +31,12 @@ class TweetCompose {
     let form = $('.tweet-compose').serializeJSON();
 
     APIUtil.createTweet(form).then((tweet) => this.handleSuccess(tweet));
+  }
+
+  addMentionedUser() {
+    let form = this.$el.find('.add-mentioned-user-form').html();
+    $('.mentioned-users').append(form);
+    return false;
   }
 }
 
