@@ -7,6 +7,7 @@ class TweetCompose {
     this.$textarea = this.$el.find('textarea.user-input');
     this.$textarea.on("input", (e) => this.updateCount(e));
     $('.add-mentioned-user').on("click", () => this.addMentionedUser());
+    // $('.add-mentioned-user').on("click", (e) => this.removeMentionedUser(e));
   }
 
   updateCount(e) {
@@ -38,6 +39,11 @@ class TweetCompose {
     $('.mentioned-users').append(form);
     return false;
   }
+
+  // removeMentionedUser(e) {
+  //   e.preventDefault();
+  //   console.log(e.currentTarget);
+  // }
 }
 
 module.exports = TweetCompose;

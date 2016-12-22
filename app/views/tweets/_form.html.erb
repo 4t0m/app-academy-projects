@@ -17,12 +17,15 @@
   <script type="text/template" class="add-mentioned-user-form">
     <label>
       Mention
-      <select name="tweet[mentioned_user_ids][]" class="user-input">
-        <option></option>
-        <% User.all.each do |user| %>
-          <option value="<%= user.id %>"><%= user.username %></option>
-        <% end %>
-      </select>
+      <div>
+        <a href="#" class="remove-mentioned-user">Remove Mention</a>
+        <select name="tweet[mentioned_user_ids][]" class="user-input">
+          <option></option>
+          <% User.all.each do |user| %>
+            <option value="<%= user.id %>"><%= user.username %></option>
+          <% end %>
+        </select>
+      </div>
     </label>
     <br>
   </script>
