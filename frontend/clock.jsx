@@ -26,12 +26,17 @@ class Clock extends React.Component {
     let hours = this.state.time.getHours(),
         minutes = this.state.time.getMinutes(),
         seconds = this.state.time.getSeconds();
-        
-    return (
-      <div>
-        <h1>{this.state.time.toDateString()}</h1>
-        <h1>{`${hours}:${minutes}:${seconds}`}</h1>
 
+    return (
+      <div className="clock-widget">
+        <div className="date">
+          <h1>Date</h1>
+          <h1>{this.state.time.toDateString()}</h1>
+        </div>
+        <div className="time">
+          <h1>Time</h1>
+          <h1>{`${hours}:${minutes}:${seconds}`}</h1>
+        </div>
       </div>
     );
   }

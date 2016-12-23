@@ -21624,16 +21624,34 @@
 	
 	      return _react2.default.createElement(
 	        "div",
-	        null,
+	        { className: "clock-widget" },
 	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          this.state.time.toDateString()
+	          "div",
+	          { className: "date" },
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            "Date"
+	          ),
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            this.state.time.toDateString()
+	          )
 	        ),
 	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          hours + ":" + minutes + ":" + seconds
+	          "div",
+	          { className: "time" },
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            "Time"
+	          ),
+	          _react2.default.createElement(
+	            "h1",
+	            null,
+	            hours + ":" + minutes + ":" + seconds
+	          )
 	        )
 	      );
 	    }
