@@ -12,20 +12,20 @@ html, body, li, ul, div, article {
   background: transparent;
 }
 
-div .tabWidget{
+div .tab-widget{
   display: flex;
   flex-direction: column;
   width: 100px;
 }
 
-.tabWidget ul {
+.tab-widget ul {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.tabWidget li {
+.tab-widget li {
   text-align: center;
   width: 50px;
   border: 1px solid black;
@@ -33,11 +33,11 @@ div .tabWidget{
   background-color: green;
 }
 
-.tabWidget article {
+.tab-widget article {
   background-color: gray;
 }
 
-.tabWidget li:hover {
+.tab-widget li:hover {
   background-color: blue;
   cursor: pointer;
 }
