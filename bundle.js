@@ -21528,7 +21528,7 @@
 	
 	      return _react2.default.createElement(
 	        "div",
-	        null,
+	        { className: "tab-widget" },
 	        _react2.default.createElement(
 	          "ul",
 	          null,
