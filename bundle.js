@@ -21512,15 +21512,20 @@
 	
 	    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
 	
-	    _this.state = { selectedTab: 0, tabs: props.tabs };
+	    _this.state = { tabIndex: 0, tabs: props.tabs };
 	    return _this;
 	  }
 	
 	  _createClass(Tabs, [{
+	    key: "setCurrentTab",
+	    value: function setCurrentTab(tabIndex) {
+	      this.setState({ tabIndex: tabIndex });
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
-	      console.log(this.state.tabs);
-	      // debugger;
+	      var _this2 = this;
+	
 	      return _react2.default.createElement(
 	        "div",
 	        null,
@@ -21530,7 +21535,7 @@
 	          this.state.tabs.map(function (tab, idx) {
 	            return _react2.default.createElement(
 	              "li",
-	              { key: idx },
+	              { onClick: _this2.setCurrentTab.bind(_this2, idx), key: idx },
 	              tab.title
 	            );
 	          })
@@ -21538,7 +21543,7 @@
 	        _react2.default.createElement(
 	          "article",
 	          null,
-	          "Some other text."
+	          this.state.tabs[this.state.tabIndex].content
 	        )
 	      );
 	    }

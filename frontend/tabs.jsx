@@ -3,20 +3,24 @@ import React from "react";
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedTab: 0, tabs: props.tabs };
+    this.state = { tabIndex: 0, tabs: props.tabs };
+  }
+
+  setCurrentTab(tabIndex) {
+      this.setState({tabIndex});
   }
 
   render() {
-    console.log(this.state.tabs);
-    // debugger;
     return (<div><ul>
       {
         this.state.tabs.map((tab, idx) => (
-          <li key={idx}>{tab.title}</li>
+          <li onClick={this.setCurrentTab.bind(this, idx)} key={idx}>{tab.title}</li>
         ))
       }
     </ul>
-    <article>Some other text.</article>
+    <article>
+      {this.state.tabs[this.state.tabIndex].content}
+    </article>
     </div>);
   }
 
