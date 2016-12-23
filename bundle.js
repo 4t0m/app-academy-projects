@@ -58,13 +58,19 @@
 	
 	var _tabs2 = _interopRequireDefault(_tabs);
 	
+	var _clock = __webpack_require__(179);
+	
+	var _clock2 = _interopRequireDefault(_clock);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var tabs = [{ title: "tab1", content: "content1" }, { title: "tab2", content: "content2" }];
 	
 	document.addEventListener("DOMContentLoaded", function () {
-	  var root = document.getElementById("root");
-	  _reactDom2.default.render(_react2.default.createElement(_tabs2.default, { tabs: tabs }), root);
+	  var tabWidget = document.getElementById("tabWidget");
+	  _reactDom2.default.render(_react2.default.createElement(_tabs2.default, { tabs: tabs }), tabWidget);
+	  var clockWeather = document.getElementById("clock-weather-widget");
+	  _reactDom2.default.render(_react2.default.createElement(_clock2.default, null), clockWeather);
 	});
 
 /***/ },
@@ -21553,6 +21559,90 @@
 	}(_react2.default.Component);
 	
 	exports.default = Tabs;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Clock = function (_React$Component) {
+	  _inherits(Clock, _React$Component);
+	
+	  function Clock(props) {
+	    _classCallCheck(this, Clock);
+	
+	    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+	
+	    _this.state = { time: new Date() };
+	    return _this;
+	  }
+	
+	  _createClass(Clock, [{
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      this.handle = setInterval(this.incrementTime.bind(this), 1000);
+	    }
+	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      clearInterval(this.handle);
+	    }
+	  }, {
+	    key: "incrementTime",
+	    value: function incrementTime() {
+	      // console.log(this.state.time);
+	      var currentSeconds = this.state.time.getSeconds();
+	      var newSeconds = this.state.time.setSeconds(currentSeconds + 1);
+	      var time = new Date(newSeconds);
+	      this.setState({ time: time });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var hours = this.state.time.getHours(),
+	          minutes = this.state.time.getMinutes(),
+	          seconds = this.state.time.getSeconds();
+	
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          this.state.time.toDateString()
+	        ),
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          hours + ":" + minutes + ":" + seconds
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Clock;
+	}(_react2.default.Component);
+	
+	exports.default = Clock;
 
 /***/ }
 /******/ ]);
