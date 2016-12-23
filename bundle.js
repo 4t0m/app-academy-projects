@@ -42,12 +42,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	
+	let Router = __webpack_require__(1);
 
 	document.addEventListener("DOMContentLoaded", () => {
 	  let content = document.querySelector(".content");
+	  let router = new Router(content);
+	  router.start();
+	  
 	  let navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
 	  navItems.forEach(navItem => {
 	    navItem.addEventListener("click", () => {
@@ -56,6 +59,40 @@
 	    });
 	  });
 	});
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	class Router {
+	  constructor(node) {
+	    this.node = node;
+	  }
+
+	  start() {
+	    this.render();
+	    window.addEventListener("hashchange", () => this.render());
+	  }
+
+	  activeRoute() {
+	    let hashFragment = window.location.hash;
+	    return hashFragment.slice(1);
+	  }
+
+	  render() {
+	    this.node.innerHTML = "";
+	    let newP = document.createElement("p");
+	    newP.innerHTML = this.activeRoute();
+	    this.node.appendChild(newP);
+	  }
+	}
+
+
+
+
+
+	module.exports = Router;
 
 
 /***/ }
