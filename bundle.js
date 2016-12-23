@@ -45,12 +45,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	let Router = __webpack_require__(1);
+	let Inbox = __webpack_require__(2);
+
+
+	let routes = {
+	  // compose: Compose,
+	  inbox: Inbox,
+	  // send: Send
+	};
+
 
 	document.addEventListener("DOMContentLoaded", () => {
 	  let content = document.querySelector(".content");
-	  let router = new Router(content);
+	  let router = new Router(content, routes);
 	  router.start();
-	  
+	  window.location.hash = "#inbox";
+
 	  let navItems = Array.from(document.querySelectorAll(".sidebar-nav li"));
 	  navItems.forEach(navItem => {
 	    navItem.addEventListener("click", () => {
@@ -66,8 +76,9 @@
 /***/ function(module, exports) {
 
 	class Router {
-	  constructor(node) {
+	  constructor(node, routes) {
 	    this.node = node;
+	    this.routes = routes;
 	  }
 
 	  start() {
@@ -77,14 +88,17 @@
 
 	  activeRoute() {
 	    let hashFragment = window.location.hash;
-	    return hashFragment.slice(1);
+	    hashFragment = hashFragment.slice(1);
+	    return this.routes[hashFragment];
 	  }
 
 	  render() {
 	    this.node.innerHTML = "";
-	    let newP = document.createElement("p");
-	    newP.innerHTML = this.activeRoute();
-	    this.node.appendChild(newP);
+	    let component = this.activeRoute();
+	    if (component) {
+	      let componentDOM = component.render();
+	      this.node.appendChild(componentDOM);
+	    }
 	  }
 	}
 
@@ -93,6 +107,23 @@
 
 
 	module.exports = Router;
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  render() {
+	    let emailList = document.createElement("ul");
+	    emailList.className = "messages";
+	    emailList.innerHTML = "An Inbox Message";
+
+	    return emailList;
+	  }
+
+
+	};
 
 
 /***/ }
