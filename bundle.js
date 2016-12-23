@@ -53,8 +53,19 @@
 	var _reactDom = __webpack_require__(32);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
-
+	
+	var _tabs = __webpack_require__(178);
+	
+	var _tabs2 = _interopRequireDefault(_tabs);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var tabs = [{ title: "tab1", content: "content1" }, { title: "tab2", content: "content2" }];
+	
+	document.addEventListener("DOMContentLoaded", function () {
+	  var root = document.getElementById("root");
+	  _reactDom2.default.render(_react2.default.createElement(_tabs2.default, { tabs: tabs }), root);
+	});
 
 /***/ },
 /* 1 */
@@ -21468,6 +21479,75 @@
 	
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Tabs = function (_React$Component) {
+	  _inherits(Tabs, _React$Component);
+	
+	  function Tabs(props) {
+	    _classCallCheck(this, Tabs);
+	
+	    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+	
+	    _this.state = { selectedTab: 0, tabs: props.tabs };
+	    return _this;
+	  }
+	
+	  _createClass(Tabs, [{
+	    key: "render",
+	    value: function render() {
+	      console.log(this.state.tabs);
+	      // debugger;
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "ul",
+	          null,
+	          this.state.tabs.map(function (tab, idx) {
+	            return _react2.default.createElement(
+	              "li",
+	              { key: idx },
+	              tab.title
+	            );
+	          })
+	        ),
+	        _react2.default.createElement(
+	          "article",
+	          null,
+	          "Some other text."
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Tabs;
+	}(_react2.default.Component);
+	
+	exports.default = Tabs;
 
 /***/ }
 /******/ ]);
