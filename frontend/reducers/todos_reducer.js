@@ -1,4 +1,4 @@
-import { RECEIVE_TODOS, RECEIVE_TODO } from "../actions/todo_actions.js"
+import { RECEIVE_TODOS, RECEIVE_TODO } from "../actions/todo_actions";
 
 const initialState = { todos: {} };
 
