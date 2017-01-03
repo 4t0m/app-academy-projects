@@ -16,14 +16,17 @@ const initialState = {
   },
 };
 
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_TODOS:
       const newState = {};
-      Object.keys(action.todos).forEach( key => (
-        newState[key] = action.todos[key]
-      ));
+      Object.keys(action.todos).forEach( key => {
+        let id = action.todos[key].id;
+        newState[id] = action.todos[key];
+      });
+      // debugger
+      console.log(newState);
       return newState;
 
     case RECEIVE_TODO:

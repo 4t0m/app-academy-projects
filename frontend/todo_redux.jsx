@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
   window.store = configureStore();  // REMOVE LATER
   // window.receiveTodos = receiveTodos; // REMOVE LATER
   // window.getTodos = getTodos;
+  window.allTodos = allTodos;
   window.fetchTodos = fetchTodos;
   ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('content'));
 });

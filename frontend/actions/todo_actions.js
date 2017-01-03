@@ -1,4 +1,4 @@
-import { getTodos } from '../util/todo_api_util';
+import * as APIUtil from '../util/todo_api_util';
 
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
@@ -26,15 +26,21 @@ export const removeTodo = (todo) => {
   };
 };
 
-export const updateTodo = (todo) => {
-  return {
-    type: UPDATE_TODO,
-    todo
-  };
-};
+// export const updateTodo = (todo) => {
+//   return {
+//     type: UPDATE_TODO,
+//     todo
+//   };
+// };
 
 export const fetchTodos = () => {
   return (dispatch) => {
-    getTodos().then(todos => dispatch(receiveTodos(todos)));
+    APIUtil.getTodos().then(todos => dispatch(receiveTodos(todos)));
+  };
+};
+
+export const createTodo = (todo) => {
+  return (dispatch) => {
+    APIUtil.addTodo(todo).then(newTodo => dispatch(receiveTodo(newTodo)));
   };
 };
