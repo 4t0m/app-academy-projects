@@ -1,12 +1,17 @@
 import React from 'react';
 import TodoListItem from './todo_list_item';
+import TodoForm from './todo_form';
 
-const TodoList = ({todos}) => {
-  console.log(todos);
+const TodoList = ({todos, receiveTodo}) => {
   return(
-    <ul className="todolist_items">
-      { todos.map( todo => <TodoListItem todo={todo}/>) }
-    </ul>
+    <div>
+      <ul className="todolist_items">
+        { todos.map( todo => <TodoListItem todo={todo}/>) }
+      </ul>
+
+      <TodoForm receiveTodo={receiveTodo}/>
+    </div>
+
   );
 };
 
