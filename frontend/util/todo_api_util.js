@@ -9,3 +9,7 @@ export const addTodo = (todo) => (
 export const changeTodo = (todo) => (
   $.ajax({ method: 'PATCH', url: `api/todos/${todo.id}`, data: {todo}})
 );
+
+export const deleteTodo = (todo) => (
+  $.ajax({ method: 'DELETE', url: `api/todos/${todo.id}`, data: {todo}})
+);

@@ -31,7 +31,7 @@ class TodoListItem extends React.Component {
     let details = undefined;
 
     if (this.state.detail) {
-      details = <TodoDetailView todo={this.props.todo} removeTodo={this.props.removeTodo}/>;
+      details = <TodoDetailView todo={this.props.todo} destroyTodo={this.props.destroyTodo}/>;
     }
 
     return (

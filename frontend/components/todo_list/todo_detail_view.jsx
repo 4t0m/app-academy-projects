@@ -9,7 +9,7 @@ class TodoDetailView extends React.Component {
     return (
       <div>
         <p>{this.props.todo.body}</p>
-        <button onClick={this.props.removeTodo.bind(null, this.props.todo)}>Remove</button>
+        <button onClick={this.props.destroyTodo.bind(null, this.props.todo)}>Remove</button>
       </div>
     );
   }
