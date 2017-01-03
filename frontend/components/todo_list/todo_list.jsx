@@ -6,7 +6,7 @@ const TodoList = ({todos, receiveTodo}) => {
   return(
     <div>
       <ul className="todolist_items">
-        { todos.map( todo => <TodoListItem todo={todo}/>) }
+        { todos.map( (todo, idx) => <TodoListItem key={idx} todo={todo}/>) }
       </ul>
 
       <TodoForm receiveTodo={receiveTodo}/>
