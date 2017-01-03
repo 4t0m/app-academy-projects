@@ -8,7 +8,7 @@ import { getTodos } from './util/todo_api_util';
 import { receiveTodos } from './actions/todo_actions';
 
 document.addEventListener("DOMContentLoaded", function(){
-  // window.store = configureStore();  // REMOVE LATER
+  window.store = configureStore();  // REMOVE LATER
   // window.receiveTodos = receiveTodos; // REMOVE LATER
   window.getTodos = getTodos;
   ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('content'));
