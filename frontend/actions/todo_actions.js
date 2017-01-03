@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/todo_api_util';
+import { receiveErrors, clearErrors } from './error_actions';
 
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
@@ -39,5 +40,6 @@ export const fetchTodos = () => dispatch => (
 );
 
 export const createTodo = (todo) => dispatch => (
-  APIUtil.addTodo(todo).then((newTodo) => dispatch(receiveTodo(newTodo)))
+  APIUtil.addTodo(todo).then(newTodo => dispatch(receiveTodo(newTodo))).then(dispatch(clearErrors()),
+    err => dispatch(receiveErrors(err.responseJSON)))
 );

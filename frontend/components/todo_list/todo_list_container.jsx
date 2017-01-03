@@ -6,7 +6,8 @@ import { receiveTodo, receiveTodos, removeTodo, updateTodo, fetchTodos, createTo
 
 const mapStateToProps = (state) => {
   return {
-    todos: allTodos(state)
+    todos: allTodos(state),
+    errors: state.errors
 };};
 
 const mapDispatchToProps = (dispatch) => ({

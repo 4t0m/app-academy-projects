@@ -26,14 +26,19 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Title</label>
-        <input type="text" onChange={this.updateTitle.bind(this)} value={this.state.title}/>
-        <br/>
-      <label>Body</label>
-        <input type="text" onChange={this.updateBody.bind(this)} value={this.state.body}/>
-        <button>Add Todo!</button>
-      </form>
+      <div>
+        <ul>
+          {this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}
+        </ul>
+        <form onSubmit={this.handleSubmit}>
+          <label>Title</label>
+          <input type="text" onChange={this.updateTitle.bind(this)} value={this.state.title}/>
+          <br/>
+          <label>Body</label>
+          <input type="text" onChange={this.updateBody.bind(this)} value={this.state.body}/>
+          <button>Add Todo!</button>
+        </form>
+      </div>
     );
   }
 }
