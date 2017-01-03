@@ -6,10 +6,10 @@ class TodoListItem extends React.Component {
     super(props);
     this.state = { detail: false};
     this.toggleDone = this.toggleDone.bind(this);
+    this.toggleDetails = this.toggleDetails.bind(this);
   }
 
   toggleDone(e) {
-    console.log(this.props);
     e.preventDefault();
     let status = this.props.todo.done ? false : true;
 
@@ -20,6 +20,12 @@ class TodoListItem extends React.Component {
     newTodo["done"] = status;
     this.props.updateTodo(newTodo);
   }
+
+  toggleDetails(e) {
+    let detail = this.state.detail ? false : true;
+    this.setState({ detail });
+  }
+
   render() {
     let status = this.props.todo.done ? "Undo" : "Check it off!";
     let details = undefined;
@@ -30,8 +36,8 @@ class TodoListItem extends React.Component {
 
     return (
       <li key={this.props.todo.id}>
-        {this.props.todo.title}
-        <button onClick={this.toggleDone.bind(this)}>{status}</button>
+        <span onClick={this.toggleDetails}>{this.props.todo.title}</span>
+        <button onClick={this.toggleDone}>{status}</button>
         {details}
       </li>
     );
