@@ -6,6 +6,6 @@ export const addTodo = (todo) => (
   $.ajax({ method: 'POST', url: 'api/todos', data: {todo}})
 );
 
-export const updateTodo = (todo) => (
-  $.ajax({ method: 'PATCH', url: `api/todo/${todo.id}`, data: {todo}})
+export const changeTodo = (todo) => (
+  $.ajax({ method: 'PATCH', url: `api/todos/${todo.id}`, data: {todo}})
 );

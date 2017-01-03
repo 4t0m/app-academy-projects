@@ -29,6 +29,7 @@ class TodoForm extends React.Component {
       <div>
         <ul>
           {this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}
+          {this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}
         </ul>
         <form onSubmit={this.handleSubmit}>
           <label>Title</label>

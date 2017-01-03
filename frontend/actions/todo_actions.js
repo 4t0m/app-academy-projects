@@ -4,8 +4,6 @@ import { receiveErrors, clearErrors } from './error_actions';
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
-export const UPDATE_TODO = "UPDATE_TODO";
-// REMOVE UPDATE_TODO ABOVE
 
 export const receiveTodos = (todos) => {
   return {
@@ -28,18 +26,21 @@ export const removeTodo = (todo) => {
   };
 };
 
-// export const updateTodo = (todo) => {
-//   return {
-//     type: UPDATE_TODO,
-//     todo
-//   };
-// };
-
 export const fetchTodos = () => dispatch => (
-    APIUtil.getTodos().then(todos => dispatch(receiveTodos(todos)))
+    APIUtil.getTodos()
+      .then(todos => dispatch(receiveTodos(todos)))
 );
 
 export const createTodo = (todo) => dispatch => (
-  APIUtil.addTodo(todo).then(newTodo => dispatch(receiveTodo(newTodo))).then(dispatch(clearErrors()),
-    err => dispatch(receiveErrors(err.responseJSON)))
+  APIUtil.addTodo(todo)
+    .then(newTodo => dispatch(receiveTodo(newTodo)))
+    .then(dispatch(clearErrors()), err =>
+      (dispatch(receiveErrors(err.responseJSON))))
+);
+
+export const updateTodo = (todo) => dispatch => (
+  APIUtil.changeTodo(todo)
+    .then(editedTodo => dispatch(receiveTodo(editedTodo)))
+    .then(dispatch(clearErrors()), err =>
+      (dispatch(receiveErrors(err.responseJSON))))
 );
