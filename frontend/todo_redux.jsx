@@ -9,10 +9,11 @@ import { fetchTodos } from './actions/todo_actions';
 import { receiveTodos } from './actions/todo_actions';
 
 document.addEventListener("DOMContentLoaded", function(){
-  window.store = configureStore();  // REMOVE LATER
+  const store = configureStore();  // REMOVE LATER
+  window.store = store;
   // window.receiveTodos = receiveTodos; // REMOVE LATER
   // window.getTodos = getTodos;
   window.allTodos = allTodos;
   window.fetchTodos = fetchTodos;
-  ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('content'));
+  ReactDOM.render(<Root store={store}/>, document.getElementById('content'));
 });
