@@ -19,7 +19,7 @@ class TodoList extends React.Component {
             removeTodo={this.props.removeTodo} updateTodo={this.props.receiveTodo}/>) }
         </ul>
 
-        <TodoForm receiveTodo={this.props.receiveTodo}/>
+        <TodoForm createTodo={this.props.createTodo}/>
       </div>
 
     );

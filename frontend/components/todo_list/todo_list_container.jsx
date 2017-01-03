@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import TodoList from './todo_list';
 import { allTodos } from '../../reducers/selectors';
 import { receiveTodo, receiveTodos, removeTodo, updateTodo, fetchTodos, createTodo } from '../../actions/todo_actions';
+// REMOVE UPDATETODO IN ABOVE LINE
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     todos: allTodos(state)
 };};

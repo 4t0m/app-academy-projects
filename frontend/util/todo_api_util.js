@@ -3,5 +3,5 @@ export const getTodos = () => (
 );
 
 export const addTodo = (todo) => (
-  $.ajax({ method: 'POST', url: 'api/todos', data: todo })
+  $.ajax({ method: 'POST', url: 'api/todos', data: {todo}})
 );
