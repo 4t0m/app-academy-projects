@@ -1,4 +1,5 @@
 import React from 'react';
+import {ItemIndexItem} from '../item/item_index_item';
 
 class PokemonDetail extends React.Component {
   constructor(props) {
@@ -17,9 +18,16 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
+
     let moves;
-    if (this.props.pokemonDetail.moves) {
+    let items;
+    if (this.props.pokemonDetail.id) {
       moves = this.props.pokemonDetail.moves.join(', ');
+      items = this.props.pokemonDetail.items.map( item => (
+          <ItemIndexItem key={item.id} item={item} />
+          ));
+
+      console.log(this.props.pokemonDetail.items);
     }
 
     return (
@@ -32,6 +40,10 @@ class PokemonDetail extends React.Component {
           <li>Defense: {this.props.pokemonDetail.defense}</li>
           <li>Moves: {moves}</li>
         </ul>
+        <ul>
+          {items}
+        </ul>
+        {this.props.children}
       </section>
     );
   }
