@@ -26,8 +26,6 @@ class PokemonDetail extends React.Component {
       items = this.props.pokemonDetail.items.map( item => (
           <ItemIndexItem key={item.id} item={item} />
           ));
-
-      console.log(this.props.pokemonDetail.items);
     }
 
     return (
