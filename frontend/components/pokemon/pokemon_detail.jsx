@@ -2,11 +2,25 @@ import React from 'react';
 
 class PokemonDetail extends React.Component {
   constructor(props) {
+
     super(props);
   }
 
+  componentDidMount() {
+    this.props.requestPokemon(this.props.params.pokemonId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.params.pokemonId !== newProps.params.pokemonId) {
+      this.props.requestPokemon(newProps.params.pokemonId);
+    }
+  }
+
   render() {
-    const moves = this.props.pokemonDetail.moves.join(', ');
+    let moves;
+    if (this.props.pokemonDetail.moves) {
+      moves = this.props.pokemonDetail.moves.join(', ');
+    }
 
     return (
       <section className="detail-section">
