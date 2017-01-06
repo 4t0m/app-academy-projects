@@ -7,6 +7,7 @@ import { fetchPokemon } from './util/api_util.js';
 import { configureStore } from './store/store';
 import { selectAllPokemon } from './reducers/selectors';
 import Root from './components/root';
+import { receiveNewPokemon, createNewPokemon } from './actions/pokemon_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receivePokemon = receivePokemon;
   window.fetchPokemon = fetchPokemon;
   window.requestPokemon = requestPokemon;
+
+  window.receiveNewPokemon = receiveNewPokemon;
+  window.createNewPokemon = createNewPokemon;
 
   window.store = store;
 
