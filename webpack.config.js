@@ -1,5 +1,3 @@
-// webpack.config.js
-
 module.exports = {
   entry: './frontend/bench_bnb.jsx',
   output: {
