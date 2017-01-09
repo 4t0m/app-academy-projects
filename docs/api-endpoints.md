@@ -11,9 +11,9 @@
 
 ### Users
 
-- `GET /api/users/:id`
+- `GET /api/users/:user_id`
 - `POST /api/users`
-- `PATCH /api/users/:id`
+- `PATCH /api/users/:user_id`
 
 ### Session
 
@@ -23,13 +23,13 @@
 
 ### Profiles
 
-- `GET /api/profiles/:id`
+- `GET /api/profiles/:user_id`
 - `POST /api/profiles`
-- `PATCH /api/profiles/:id`
+- `PATCH /api/profiles/:user_id`
 
 ### Friends
 
-- `GET /api/friends`
+- `GET /api/:user_id/friends`
 
 ### Posts
 
