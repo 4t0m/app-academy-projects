@@ -28,9 +28,6 @@
       * Profile about
       * Friend index
         * friend index item
-      * Profile photos index
-        * profile photo index item
-        * profile add photo form
     * **Profile Edit**
       * Profile edit form
 
@@ -44,4 +41,3 @@
 |"/users/:userId" | Profile Container |
 |"users/:userId/about" | Profile About |
 |"users/:userId/edit" | Profile Edit  |
-|"users/:userId/photos"| Profile Photos |
