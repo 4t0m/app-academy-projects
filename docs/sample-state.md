@@ -2,7 +2,8 @@
 {
   currentUser: {
     id: 1,
-    username: "user"
+    fname: "John",
+    lname: "Smith"
   },
   forms: {
     errors: []
@@ -13,6 +14,12 @@
       body: "What a beautiful day!",
       author_id: 1,
       receiver_id: Null
+    },
+
+    2: {
+      body; "Happy Birthday!"
+      author_id: 1,
+      receiver_id: 2
     }
   },
 
