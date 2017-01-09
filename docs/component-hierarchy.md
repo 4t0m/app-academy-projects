@@ -35,5 +35,4 @@
 |"/login"     | LoginPage          |
 |"/"          | NewsfeedContainer  |
 |"/users/:userId" | Profile Container |
-|"users/:userId/about" | Profile About |
 |"users/:userId/edit" | Profile Edit  |
