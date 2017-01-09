@@ -1,8 +1,8 @@
 # Component Hierarchy
 
 * **App**
-  * **LoginPage** (if not logged in)
-    * Sign in Form
+  * LoginPage (if not logged in)
+    * Sign In Form
     * Sign Up Form
     * App Details Container
   * Header (if logged in)
@@ -24,15 +24,15 @@
     * Profile post index
       * New post form
       * Profile post index item
-    * **Profile Edit**
+    * Profile Edit
       * Profile edit form
 
 
 # Routes
 
-| Path        | Component          |
-|-------------|--------------------|
-|"/login"     | LoginPage          |
-|"/"          | NewsfeedContainer  |
-|"/users/:userId" | Profile Container |
-|"users/:userId/edit" | Profile Edit  |
+| Path                | Component          |
+|---------------------|--------------------|
+|"/login"             | LoginPage          |
+|"/"                  | NewsfeedContainer  |
+|"/users/:userId"     | Profile Container  |
+|"users/:userId/edit" | Profile Edit       |
