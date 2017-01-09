@@ -35,9 +35,6 @@
 
 - `GET /api/posts`
 - `POST /api/posts`
-- `GET /api/posts/:id`
-- `PATCH /api/posts/:id`
-- `DELETE /api/posts/:id`
-
-### Newsfeed
-- `GET /api/newsfeed`
+- `GET /api/posts/:post_id`
+- `PATCH /api/posts/:post_id`
+- `DELETE /api/posts/:post_id`
