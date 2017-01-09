@@ -11,6 +11,8 @@
     * Log out button
     * Notifications Index
       * Notifications Index Item
+    * Profile Button
+    * Home Button
   * Newsfeed Container
     * Newsfeed Index
       * New Post Form
