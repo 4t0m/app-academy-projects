@@ -23,11 +23,7 @@
         * Friend profile pictures index item
     * Profile post index
       * New post form
-      * profile post index item
-    * **Profile about container**
-      * Profile about
-      * Friend index
-        * friend index item
+      * Profile post index item
     * **Profile Edit**
       * Profile edit form
 
