@@ -1,6 +1,6 @@
 # FacebookClone
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
 [Trello link][trello]
 
@@ -63,7 +63,8 @@ the API.
 **objective:** Add infinite scroll to Notes Index
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Notifications
+- [ ] Likes
+- [ ] Comments on posts
+- [ ] Search
+- [ ] Messaging
