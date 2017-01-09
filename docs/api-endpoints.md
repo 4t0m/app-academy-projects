@@ -17,14 +17,12 @@
 
 ### Session
 
-- `GET /api/session/new`
 - `POST /api/session`
 - `DELETE /api/session`
 
 ### Profiles
 
 - `GET /api/profiles/:user_id`
-- `POST /api/profiles`
 - `PATCH /api/profiles/:user_id`
 
 ### Friends
