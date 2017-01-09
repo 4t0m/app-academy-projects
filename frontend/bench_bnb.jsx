@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as SessionApiUtil from './util/session_api_util';
+import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
     //TODO Remove below
-    
+    const store = configureStore();
+    window.store = store;
     window.login = SessionApiUtil.login;
     window.signup = SessionApiUtil.signup;
     window.logout = SessionApiUtil.logout;
