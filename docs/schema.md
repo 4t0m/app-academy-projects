@@ -20,16 +20,9 @@ receiver_id | integer   | not null, foreign key (references user who's wall the 
 
 
 ## friends
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references tagged user), indexed
-friend_id   | integer   | not null, foreign key (references other user), indexed, unique per user_id
-
-## friend_requests
-column name       | data type | details
-------------------|-----------|--------------
-id                | integer   | not null, primary key
-maker_id          | integer   | not_null, foreign key (references users), indexed
-receiver_id       | integer   | not_null, foreign key (references users), indexed
-friending_id      | integer   | not_null, foreign key (references friendings), indexed
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+requester_id  | integer   | not null, foreign key (references tagged user), indexed
+receiver_id   | integer   | not null, foreign key (references other user), indexed, unique per user_id
+status        | string    | not null, indexed
