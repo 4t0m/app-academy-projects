@@ -6,24 +6,24 @@
     * Sign Up Form
     * App Details Container
   * Header (if logged in)
-    * Friend Request index
-      * Friend Request index item
+    * Friend Request Index
+      * Friend Request Index Item
     * Log out button
-    * Notifications index
-      * Notifications index item
+    * Notifications Index
+      * Notifications Index Item
   * Newsfeed Container
-    * Newsfeed index
-      * New post form
-      * Newsfeed index item
+    * Newsfeed Index
+      * New Post Form
+      * Newsfeed Index Item
 
   * **Profile Container**
     * Profile Sidebar
       * Profile About
-      * Friend profile pictures index
-        * Friend profile pictures index item
-    * Profile post index
+      * Friend profile pictures Index
+        * Friend profile pictures Index Item
+    * Profile post Index
       * New post form
-      * Profile post index item
+      * Profile post Index Item
     * Profile Edit
       * Profile edit form
 
