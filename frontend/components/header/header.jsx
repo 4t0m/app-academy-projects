@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+// import SignInForm from './sign_in_form';
 
 const sessionLinks = () => (
   <nav className="login-signup">
