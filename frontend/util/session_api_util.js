@@ -1,14 +1,14 @@
 export const signup = (user) => (
   $.ajax({type: "POST",
           url: "/api/user",
-          data: user})
+          data: { user } })
 );
 
 
 export const login = (user) => (
   $.ajax({type: "POST",
           url: "/api/session",
-          data: user})
+          data: { user } })
 );
 
 export const logout = () => (

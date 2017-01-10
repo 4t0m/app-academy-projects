@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import SignInForm from './sign_in_form';
+import HeaderLoginFormContainer from './header_login_form_container';
 
 const sessionLinks = () => (
   <nav className="login-signup">
@@ -16,8 +16,12 @@ const signedInHeader = (currentUser, logout) => (
 	</hgroup>
 );
 
-const Header = ({ currentUser, logout }) => (
-  currentUser ? signedInHeader(currentUser, logout) : sessionLinks()
-);
+const Header = ({ currentUser, login, logout }) => {
+  if(currentUser){
+    return signedInHeader(currentUser, logout);
+  } else {
+    return <HeaderLoginFormContainer login={login}/>;
+  }
+};
 
 export default Header;
