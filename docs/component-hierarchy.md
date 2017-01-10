@@ -14,18 +14,19 @@
     * Profile Button
     * Home Button
   * Newsfeed Container
-    * Newsfeed Index
+    * Feed Index
       * New Post Form
-      * Newsfeed Index Item
+      * Feed Index Item
 
   * **Profile Container**
     * Profile Sidebar
       * Profile About
-      * Friend profile pictures Index
-        * Friend profile pictures Index Item
-    * Profile post Index
-      * New post form
-      * Profile post Index Item
+      * Friend Profile Pictures Index
+        * Friend Profile Pictures Index Item
+    * Profile Feed Container
+      * Feed Index
+        * New Post Form
+        * Feed Index Item
     * Profile Edit
       * Profile edit form
 
