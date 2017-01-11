@@ -11,6 +11,7 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
+    hashHistory.push('/');
   }
 
   update(field) {
