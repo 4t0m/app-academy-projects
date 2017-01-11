@@ -31,13 +31,17 @@ class LoginForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Email
-            <input type="text" onChange={this.update('email')} value={this.state.email} />
-          </label>
-          <label>Password
-            <input type="password" onChange={this.update('password')} value={this.state.password} />
-          </label>
-          <input type='submit' value="Login" />
+          <section className="login-input">
+            <label>Email
+              <input type="text" onChange={this.update('email')} value={this.state.email} />
+            </label>
+          </section>
+          <section className="login-input">
+            <label>Password
+              <input type="password" onChange={this.update('password')} value={this.state.password} />
+            </label>
+          </section>
+          <input type='submit' value="Login" className="login-button"/>
         </form>
       </div>
     );
