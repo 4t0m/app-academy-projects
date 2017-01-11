@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
-const SplashDetails = () => (
+const WelcomeDetails = () => (
   <div>
     <h2>This is my Facebook Clone!</h2>
     <ul>
@@ -13,4 +13,4 @@ const SplashDetails = () => (
 );
 
 
-export default SplashDetails;
+export default WelcomeDetails;
