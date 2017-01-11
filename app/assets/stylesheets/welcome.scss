@@ -1,7 +1,13 @@
+$dark-blue: #3b5998;
+$medium-blue: #8b9dc3;
+$gray: #dfe3ee;
+$light-gray: #f7f7f7;
+$white: #ffffff;
+
 .welcome-header {
   display: block;
-  background-color: blue;
-  height: 40px;
+  background-color: $dark-blue;
+  height: 60px;
   margin: 0;
   padding: 0;
 }
@@ -9,4 +15,13 @@
 .main-container {
   display: flex;
   flex-direction: row;
+  background-color: $gray;
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  width: 100%
+}
+
+.welcome-details {
+
 }

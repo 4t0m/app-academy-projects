@@ -11,8 +11,8 @@ const Welcome = ({ currentUser, login, logout, signup }) => {
         <LoginFormContainer login={login}/>
       </section>
       <section className="main-container">
-        <WelcomeDetails className="welcome-details"/>
-        <SignupFormContainer className="signup-form" signup={signup} />
+        <WelcomeDetails />
+        <SignupFormContainer signup={signup} />
       </section>
     </div>
   );
