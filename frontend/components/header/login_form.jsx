@@ -1,7 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
-class HeaderLoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state = props.user;
@@ -29,4 +29,4 @@ class HeaderLoginForm extends React.Component {
   }
 }
 
-export default HeaderLoginForm;
+export default LoginForm;
