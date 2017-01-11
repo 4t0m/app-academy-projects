@@ -5,12 +5,21 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
+  let store;
+
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
+
   //TODO Remove some of this (window asssignments)
-  const store = configureStore();
-  window.store = store;
   window.login = SessionApiUtil.login;
   window.signup = SessionApiUtil.signup;
   window.logout = SessionApiUtil.logout;
+  window.store = store;
+
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
