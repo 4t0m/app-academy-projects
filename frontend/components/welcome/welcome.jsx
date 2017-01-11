@@ -7,12 +7,12 @@ import SignupFormContainer from './signup_form_container';
 const Welcome = ({ currentUser, login, logout, signup }) => {
   return (
     <div>
-      <section className="header">
+      <section className="welcome-header">
         <LoginFormContainer login={login}/>
       </section>
       <section className="main-container">
-        <WelcomeDetails />
-        <SignupFormContainer signup={signup} />
+        <WelcomeDetails className="welcome-details"/>
+        <SignupFormContainer className="signup-form" signup={signup} />
       </section>
     </div>
   );
