@@ -8,6 +8,7 @@ const Welcome = ({ currentUser, login, logout, signup }) => {
   return (
     <div>
       <section className="welcome-header">
+        <h1>Facebook Clone</h1>
         <LoginFormContainer login={login}/>
       </section>
       <section className="main-container">

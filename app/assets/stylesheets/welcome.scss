@@ -6,6 +6,8 @@ $white: #ffffff;
 
 h1 {
   font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .welcome-header {
@@ -18,23 +20,44 @@ h1 {
   padding: 10px 20px 10px 20px;
 }
 
-.login-input {
+.login-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.login-field {
   display: flex;
   flex-direction: column;
+  margin: 0px 5px;
 }
+
+.login-field input[type="password"],
+.login-field input[type="text"]  {
+  color: black;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+};
 
 .main-container {
   display: flex;
   flex-direction: row;
   background-color: $gray;
+  justify-content: space-around;
   position: absolute;
   top: 60px;
   bottom: 0;
   width: 100%
 }
 
-.welcome-details {
+.col-1-2 {
+  width: 50%;
+}
 
+.welcome-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -44,5 +67,11 @@ input[type="text"] {
 }
 
 .login-button {
-  background-color: $medium-blue;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: $dark-blue;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 2px;
+  border: 1px solid black;
 }

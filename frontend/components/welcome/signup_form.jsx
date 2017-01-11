@@ -18,20 +18,21 @@ class SignupForm extends React.Component {
   }
   render () {
     return (
-      <div className="signup-form" >
+      <div className="signup-form col-1-2">
         <form onSubmit={this.handleSubmit}>
-          <label>Email
-            <input type="text" onChange={this.update('email')} value={this.state.email} />
-          </label>
-          <label>First Name
-            <input type="text" onChange={this.update('fname')} value={this.state.fname} />
-          </label>
-          <label>Last Name
-            <input type="text" onChange={this.update('lname')} value={this.state.lname} />
-          </label>
-          <label>Password
-            <input type="password" onChange={this.update('password')} value={this.state.password} />
-          </label>
+
+          <section className="name-input">
+            <input type="text" onChange={this.update('fname')}
+              placeholder="First Name" value={this.state.fname} />
+            <input type="text" onChange={this.update('lname')}
+              placeholder="Last Name" value={this.state.lname} />
+          </section>
+          
+          <input type="text" onChange={this.update('email')}
+            placeholder="Email" value={this.state.email} />
+          <input type="password" onChange={this.update('password')}
+            placeholder="Password" value={this.state.password} />
+
           <input type='submit' value="Signup" />
         </form>
         <button onClick={this.props.guestLogin} value="Guest Login">Guest</button>

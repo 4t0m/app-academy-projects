@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
 const WelcomeDetails = () => (
-  <div className="welcome-details">
+  <div className="welcome-details col-1-2">
     <h2>This is my Facebook Clone!</h2>
     <ul>
       <li>It does this!</li>
