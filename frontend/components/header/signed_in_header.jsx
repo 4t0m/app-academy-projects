@@ -7,6 +7,8 @@ class SignedInHeader extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  
+
   componentDidUpdate() {
     this.redirectIfLoggedOut();
   }

@@ -13,7 +13,7 @@ h1 {
 .welcome-header {
   display: flex;
   background-color: $dark-blue;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   color: $white;
   height: 60px;
@@ -23,18 +23,20 @@ h1 {
 .login-form {
   display: flex;
   flex-direction: row;
+  font-size: 14px;
+  align-items: center;
 }
 
 .login-field {
   display: flex;
   flex-direction: column;
-  margin: 0px 5px;
+  margin: 0px 10px;
 }
 
 .login-field input[type="password"],
 .login-field input[type="text"]  {
   color: black;
-  padding: 5px 10px;
+  padding: 3px 5px;
   box-sizing: border-box;
   border: 1px solid black;
 };
@@ -70,8 +72,9 @@ input[type="text"] {
   font-size: 14px;
   font-weight: bold;
   background-color: $dark-blue;
-  padding-left: 4px;
-  padding-right: 4px;
+  margin-left: 10px;
+  height: 25px;
+  padding: 0 4px;
   border-radius: 2px;
   border: 1px solid black;
 }

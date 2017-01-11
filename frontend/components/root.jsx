@@ -9,7 +9,9 @@ const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
+    console.log("out");
     if (!currentUser) {
+      console.log("in");
       replace('/welcome');
     }
   };
