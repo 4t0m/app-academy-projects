@@ -8,10 +8,20 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
+
+  redirectIfLoggedIn() {
+    if(this.props.currentUser) {
+      hashHistory.push('/');
+    }
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
-    hashHistory.push('/');
   }
 
   update(field) {
@@ -21,8 +31,12 @@ class LoginForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.update('email')} value={this.state.email} />
-          <input type="password" onChange={this.update('password')} value={this.state.password} />
+          <label>Email
+            <input type="text" onChange={this.update('email')} value={this.state.email} />
+          </label>
+          <label>Password
+            <input type="password" onChange={this.update('password')} value={this.state.password} />
+          </label>
           <input type='submit' value="Login" />
         </form>
       </div>
