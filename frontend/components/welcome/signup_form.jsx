@@ -34,6 +34,7 @@ class SignupForm extends React.Component {
           </label>
           <input type='submit' value="Signup" />
         </form>
+        <button onClick={this.props.guestLogin} value="Guest Login">Guest</button>
       </div>
     );
   }

@@ -11,6 +11,12 @@ export const login = (user) => (
           data: { user } })
 );
 
+export const guestLogin = () => (
+  $.ajax({type: "POST",
+          url: "/api/session",
+          data: { user: { email: "guest@domain.com", password: "password"} } })
+);
+
 export const logout = () => (
   $.ajax({type: "DELETE",
           url: "/api/session"})

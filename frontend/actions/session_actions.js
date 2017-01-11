@@ -20,6 +20,12 @@ export const login = user => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const guestLogin = () => dispatch => (
+  SessionApiUtil.guestLogin()
+    .then(user => dispatch(receiveCurrentUser(user)),
+      err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const logout = () => dispatch => (
   SessionApiUtil.logout()
     .then(() => dispatch(receiveCurrentUser(null)))
