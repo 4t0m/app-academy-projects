@@ -17,6 +17,7 @@
 #  workplace       :string
 #  cover_pic_url   :string
 #  birthday        :date
+#  school          :string
 #
 
 class User < ActiveRecord::Base
