@@ -21,23 +21,44 @@ input[type="text"] {
   background-color: $dark-blue;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;;
   height: 45px;
   width: 1000px;
+  position: relative;
+  left: -100px;
   color: $white;
   font-weight: bold;
+}
+
+.logo-and-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-and-search h2 {
+  margin-right: 10px;
+  font-size: 25px;
 }
 
 .search-bar {
   color: black;
   padding: 3px 5px;
+  font-size: 14px;
+  font-weight: normal;
   box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid black;
   width: 500px;
   height: 25px;
+
 }
 
 .header-links {
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
 }
