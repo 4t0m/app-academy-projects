@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://facebook-adom.herokuapp.com
 [trello]: https://trello.com/b/jZri4w0T/facebook-clone
 
 ## Minimum Viable Product
