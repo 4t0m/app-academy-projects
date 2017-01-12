@@ -1,10 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router';
-import SignedInHeaderContainer from './signed_in_header_container';
+import { hashHistory, Link } from 'react-router';
 
+class Header extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
 
-const Header = ({ currentUser, login, logout }) => {
-  return <SignedInHeaderContainer logout={logout}/>;
-};
+  componentDidUpdate() {
+    this.redirectIfLoggedOut();
+  }
+
+  redirectIfLoggedOut() {
+    if(!this.props.currentUser) {
+      hashHistory.push('/welcome');
+    }
+  }
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.logout();
+  }
+
+  render () {
+    if(this.props.currentUser){
+      return (
+        <div className="header-container">
+          <div className="header-bar">
+            <div className="logo-and-search">
+              <h2 className="app-name">fbc</h2>
+              <input type="text" className="search-bar"
+                placeholder="Search"></input>
+            </div>
+            <div className="header-links">
+              <Link to={`/profile/${this.props.currentUser.id}`} className="profile-link">
+                {this.props.currentUser.fname}
+              </Link>
+              <Link to={"/"} className="feed-link">
+                Home
+              </Link>
+              <button className="logout-button" onClick={this.handleLogout}>Log Out</button>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  }
+}
 
 export default Header;

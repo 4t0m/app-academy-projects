@@ -1,0 +1,43 @@
+$dark-blue: #3b5998;
+$medium-blue: #8b9dc3;
+$gray: #dfe3ee;
+$light-gray: #f7f7f7;
+$white: #ffffff;
+$green: #59983B;
+
+input[type="text"] {
+  background-color: $white;
+}
+
+.header-container {
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 45px;
+}
+
+.header-bar {
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 45px;
+  width: 1000px;
+  color: $white;
+  font-weight: bold;
+}
+
+.search-bar {
+  color: black;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid black;
+  width: 500px;
+  height: 25px;
+}
+
+.header-links {
+  font-size: 14px;
+}

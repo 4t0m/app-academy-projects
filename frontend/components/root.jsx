@@ -3,15 +3,13 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import WelcomeContainer from './welcome/welcome_container';
-
+import ProfileContainer from './profile/profile_container';
 
 const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
-    console.log("out");
     if (!currentUser) {
-      console.log("in");
       replace('/welcome');
     }
   };
@@ -27,6 +25,8 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App } />
+          <Route path="profile/:id" component={ProfileContainer}
+            onEnter={_ensureLoggedIn} />
           <Route path="/welcome" component={WelcomeContainer}
             onEnter={_redirectIfLoggedIn} />
       </Router>
