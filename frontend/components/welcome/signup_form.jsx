@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
   }
   render () {
     return (
-      <div className="signup-and-guest col-1-2">
+      <div className="signup-and-guest col-1-4">
         <h1>Sign Up</h1>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <section className="name-input">
