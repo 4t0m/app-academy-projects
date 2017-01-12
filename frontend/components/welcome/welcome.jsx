@@ -6,15 +6,21 @@ import SignupFormContainer from './signup_form_container';
 
 const Welcome = ({ currentUser, login, logout, signup }) => {
   return (
-    <div>
-      <section className="welcome-header">
-        <h1>Facebook Clone</h1>
-        <LoginFormContainer login={login}/>
-      </section>
-      <section className="main-container">
-        <WelcomeDetails />
-        <SignupFormContainer signup={signup} />
-      </section>
+    <div className="main-container">
+      <div className="header-container">        
+        <div className="welcome-header">
+          <h1>Facebook Clone</h1>
+          <LoginFormContainer login={login}/>
+        </div>
+      </div>
+      <div className="welcome-body group">
+        <section className="body-container group">
+          <WelcomeDetails />
+          <SignupFormContainer signup={signup} />
+        </section>
+      </div>
+      <div className="welcome-footer">
+      </div>
     </div>
   );
 };

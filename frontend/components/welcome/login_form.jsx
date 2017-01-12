@@ -6,6 +6,7 @@ class LoginForm extends React.Component {
     super(props);
     this.state = props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   componentDidUpdate() {
@@ -18,6 +19,10 @@ class LoginForm extends React.Component {
     }
   }
 
+  handleGuest(e) {
+    e.preventDefault();
+    this.props.guestLogin();
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -27,6 +32,7 @@ class LoginForm extends React.Component {
   update(field) {
     return e => (this.setState( {[field]: e.target.value } ));
   }
+
   render () {
     return (
         <form className="login-form" onSubmit={this.handleSubmit}>
@@ -40,7 +46,16 @@ class LoginForm extends React.Component {
               <input type="password" onChange={this.update('password')}
                 name="password" value={this.state.password} />
           </section>
+          <section>
+            <br></br>
             <input type="submit" name="submit" value="Log In" className="login-button"/>
+          </section>
+          <section>
+            <br></br>
+              <button className="login-button" onClick={this.handleGuest}
+                 value="Guest Login">Guest Login</button>
+          </section>
+
         </form>
     );
   }

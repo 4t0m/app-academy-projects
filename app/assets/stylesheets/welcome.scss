@@ -6,32 +6,46 @@ $white: #ffffff;
 $green: #59983B;
 $magenta: #983B59;
 
-h1 {
-  font-size: 40px;
-  font-weight: bold;
+input[type="password"],
+input[type="text"] {
+  background-color: $white;
+}
+
+.header-container {
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90px;
 }
 
 .welcome-header {
   display: flex;
   background-color: $dark-blue;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  font-size: 12px;
   color: $white;
-  height: 60px;
-  padding: 10px 20px 10px 20px;
+  height: 90px;
+  width: 980px;
+  padding: 10px 0;
+}
+
+.welcome-header h1 {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .login-form {
   display: flex;
   flex-direction: row;
-  font-size: 14px;
   align-items: center;
 }
 
 .login-field {
   display: flex;
   flex-direction: column;
-  margin: 0px 10px;
+  margin: 0px 8px;
 }
 
 .login-field input[type="password"],
@@ -40,18 +54,39 @@ h1 {
   padding: 3px 5px;
   box-sizing: border-box;
   border: 1px solid black;
+  width: 110px;
 };
 
-.main-container {
+.login-button {
+  font-weight: bold;
+  background-color: $dark-blue;
+  margin-left: 8px;
+  padding: 3px 5px;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.welcome-body {
+  background-color: $gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 750px;
+  color: #333;
+}
+
+.body-container {
   display: flex;
   flex-direction: row;
   background-color: $gray;
-  justify-content: space-around;
+  justify-content: space-between;
   position: absolute;
-  top: 60px;
+  top: 90px;
   bottom: 0;
-  width: 100%;
-  padding-top: 80px;
+  width: 980px;
+  height: 750px;
+  padding-top: 40px;
+
 }
 
 .col-1-4 {
@@ -61,35 +96,49 @@ h1 {
 .welcome-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-weight: bold;
+  width: 565px;
 }
 
 .welcome-details h2 {
-  font-size: 35px;
-  font-weight: bold;
+width: 450px;
+font-size: 28px;
+font-weight: 600;
+line-height: 34px;
+padding-top: 42px;
+padding-bottom: 24px;
 }
+
+
+.welcome-details-item {
+font-size: 15px;
+margin-top: 20px;
+padding-bottom: 10px;
+color: #666;
+}
+
+.welcome-details-item p {
+top: 15px;
+left: 30px;
+}
+
+.welcome-details-item strong {
+font-size: 17px;
+font-weight: bold;
+color: #333;
+margin-right: 10px;
+}
+
 
 .signup-form {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
 }
 
-input[type="password"],
-input[type="text"] {
-  background-color: $white;
-}
-
-.login-button {
-  font-size: 14px;
-  font-weight: bold;
-  background-color: $dark-blue;
-  margin-left: 10px;
-  height: 25px;
-  padding: 0 4px;
-  border-radius: 2px;
-  border: 1px solid black;
-}
 
 .signup-form input[type="password"],
 .signup-form input[type="text"]  {
@@ -97,19 +146,27 @@ input[type="text"] {
   padding: 3px 5px;
   box-sizing: border-box;
   border: 1px solid black;
-  border-radius: 8px;
-  margin-right: 10px;
+  border-radius: 7px;
   margin-bottom: 15px;
   padding: 10px;
-  width: 370px;
+  width: 400px;
 };
 
-.signup-and-guest h1 {
+.signup-form .heading {
   margin: 30px 0;
 }
 
+.signup-form h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.fname {
+  margin-right: 10px;
+}
+
 .signup-form .name-input input {
-  width: 180px;
+  width: 195px;
 }
 
 .large-button {
@@ -118,7 +175,7 @@ input[type="text"] {
   font-weight: bold;
   height: 40px;
   padding: 0 4px;
-  border-radius: 2px;
+  border-radius: 7px;
   border: 1px solid black;
   width: 160px;
   text-align: center;
@@ -129,6 +186,8 @@ input[type="text"] {
   background-color: $green;
 }
 
-.guest-login {
-  background-color: $magenta;
+
+.footer {
+  background-color: $white;
+  height: 150px;
 }

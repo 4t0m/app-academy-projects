@@ -2,13 +2,17 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
 const WelcomeDetails = () => (
-  <div className="welcome-details col-1-2">
-    <h2>This is my Facebook Clone!</h2>
-    <ul>
-      <li>It does this!</li>
-      <li>And also this!!</li>
-      <li>And even this!!!</li>
-    </ul>
+  <div className="welcome-details">
+    <h2>Connect with friends and the <br/>world around you on Facebook Clone.</h2>
+    <div className="welcome-details-item group">
+      <p><strong>See photos and updates</strong> from friends in News Feed.</p>
+    </div>
+    <div className="welcome-details-item group">
+      <p><strong>Share what's new</strong> in your life on your Timeline.</p>
+    </div>
+    <div className="welcome-details-item group">
+      <p><strong>Find more</strong> of what you're looking for with Search.</p>
+    </div>
   </div>
 );
 

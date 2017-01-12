@@ -18,11 +18,13 @@ class SignupForm extends React.Component {
   }
   render () {
     return (
-      <div className="signup-and-guest col-1-4">
-        <h1>Sign Up</h1>
         <form className="signup-form" onSubmit={this.handleSubmit}>
+          <section className="heading">
+            <h1>Sign Up</h1>
+            <p>It's free and always will be.</p>
+          </section>
           <section className="name-input">
-            <input type="text" onChange={this.update('fname')}
+            <input type="text" onChange={this.update('fname')} className="fname"
               placeholder="First Name" value={this.state.fname} />
             <input type="text" onChange={this.update('lname')}
               placeholder="Last Name" value={this.state.lname} />
@@ -35,8 +37,6 @@ class SignupForm extends React.Component {
 
           <input className="large-button create-account" type='submit' value="Create Account" />
         </form>
-        <button className="large-button guest-login" onClick={this.props.guestLogin} value="Guest Login">Guest Login</button>
-      </div>
     );
   }
 }
