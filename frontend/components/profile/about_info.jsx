@@ -4,21 +4,19 @@ import React from 'react';
 class AboutInfo extends React.Component {
   constructor(props){
     super(props);
+    this.submitProfileEdit = this.submitProfileEdit.bind(this);
   }
 
 
   submitProfileEdit() {
-
     var formData = new FormData();
     formData.append("user[birthday]", new Date($('input[name="birthday"]').val()));
     formData.append("user[relationship]", $('input[name="relationship"]').val());
     formData.append("user[school]", $('input[name="school"]').val());
     formData.append("user[workplace]", $('input[name="workplace"]').val());
-    formData.append("user[current_town]", $('input[name="current_town"]').val());
-
-    console.log(formData);
-    this.props.updateUser(formData);
-
+    formData.append("user[home_town]", $('input[name="hometown"]').val());
+    formData.append("user[current_city]", $('input[name="currentCity"]').val());
+    this.props.updateUser(formData, this.props.currentUser.id);
   }
 
   saveEditButton() {
@@ -32,7 +30,6 @@ class AboutInfo extends React.Component {
 
 
   thisUserInfo() {
-
     let birthday, currentCity, hometown, relationshipStatus, workplace,
         school;
 
@@ -49,14 +46,14 @@ class AboutInfo extends React.Component {
     relationshipStatus = (<li>Relationship Status: <input type="text" name="relationship"
       defaultValue={this.props.user.relationship} /></li>);
 
-
     return(
       <ul className="about-user">
         {birthday}
-        {relationshipStatus}
+        {currentCity}
+        {hometown}
         {school}
         {workplace}
-        {currentCity}
+        {relationshipStatus}
       </ul>
     );
   }

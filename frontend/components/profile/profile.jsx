@@ -20,7 +20,8 @@ class Profile extends React.Component {
     return <div className="profile-body">
       <HeaderContainer />
       <Pics />
-      <AboutInfo user={this.props.user} currentUser={this.props.currentUser}/>
+      <AboutInfo user={this.props.user} currentUser={this.props.currentUser}
+        updateUser={this.props.updateUser}/>
       <Friends />
       <p>
         This will be a profile

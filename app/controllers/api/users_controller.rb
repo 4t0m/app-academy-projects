@@ -20,6 +20,19 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    if @user
+      if @user.update(user_params)
+        render :show
+      else
+        render json: @user.errors, status: 400
+      end
+    else
+      render json: ["No user found"], status: 404
+    end
+  end
+
   private
 
   def user_params
