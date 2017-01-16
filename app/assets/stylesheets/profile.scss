@@ -5,8 +5,18 @@ $light-gray: #f7f7f7;
 $white: #ffffff;
 $green: #59983B;
 
+.profile-container {
+  display: flex;
+  justify-content: center;
+  background-color: $light-gray;
+}
+
 .profile-body {
   background-color: $light-gray;
+  width: 1000px;
+  left: -100px;
+  position: relative;
+
 }
 
 .about-info {

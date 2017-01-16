@@ -1,7 +1,7 @@
 import React from 'react';
 import { hashHistory, Link } from 'react-router';
 import HeaderContainer from '../header/header_container';
-import Pics from './pics';
+import TopSection from './top_section';
 import AboutInfo from './about_info';
 import Friends from './friends';
 
@@ -12,20 +12,31 @@ class Profile extends React.Component {
 
 
   componentDidMount() {
-    this.props.fetchUser();
+    this.props.fetchUser(this.props.params.id);
   }
 
 
+  componentWillUpdate(nextProps) {
+    if (this.props.params.id !== nextProps.params.id) {
+      this.props.fetchUser(nextProps.params.id);
+      // this.props.findFriend(nextProps.params.id);
+    }
+  }
+
   render () {
-    return <div className="profile-body">
+    return <div>
       <HeaderContainer />
-      <Pics />
-      <AboutInfo user={this.props.user} currentUser={this.props.currentUser}
-        updateUser={this.props.updateUser}/>
-      <Friends />
-      <p>
-        This will be a profile
-      </p>
+      <div className="profile-container">
+        <div className="profile-body">
+          <TopSection />
+          <AboutInfo user={this.props.user} currentUser={this.props.currentUser}
+            updateUser={this.props.updateUser}/>
+          <Friends />
+          <p>
+            This will be a profile
+          </p>
+        </div>
+      </div>
     </div>;
   }
 }

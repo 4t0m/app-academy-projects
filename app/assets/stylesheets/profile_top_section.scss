@@ -1,0 +1,160 @@
+$dark-blue: #3b5998;
+$medium-blue: #8b9dc3;
+$gray: #dfe3ee;
+$light-gray: #f7f7f7;
+$white: #ffffff;
+$green: #59983B;
+
+
+
+// .profile-body {
+//   background: white;
+//   width: 850px;
+//   margin: 0 auto;
+//   margin-top: 43px;
+//   font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif ;
+//   position: relative;
+// }
+
+.profile-top-section {
+  padding-bottom: 20px;
+}
+
+.profile-cover-photo {
+  height: 315px;
+  border-left: 1px solid #868589;
+  border-right: 1px solid #868589;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.profile-cover-info {
+  position: absolute;
+  bottom: 15px;
+  left: 205px;
+}
+
+.profile-cover-name {
+  font-size: 24px;
+  color: white;
+  text-shadow:
+  -1px -1px 0 #615F61,
+    1px -1px 0 #615F61,
+    -1px 1px 0 #615F61,
+    1px 1px 0 #615F61;
+  text-transform: capitalize;
+}
+
+.profile-cover-buttons {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.profile-cover-friend {
+  background: #F6F7F9;
+  font-size: 14px;
+  padding: 4px 9px;
+  border: 1px solid black;
+}
+
+.profile-cover-friend:hover {
+  background: #E9EBEE;
+  cursor: pointer;
+}
+
+.profile-cover-friend-toggle {
+  display: none;
+}
+
+.profile-cover-friend:hover .profile-cover-friend-toggle {
+  display: block;
+}
+
+.profile-cover-friend:hover .profile-cover-friend-status {
+  display: none;
+}
+
+.profile-topper-bottom {
+  height: 45px;
+  position: relative;
+  border: 1px solid #D3D6DB;
+}
+
+.profile-picture {
+  padding: 5px;
+  background: white;
+  border: 1px solid #B3B3B3;
+  float: left;
+  margin: 0 auto;
+  position: absolute;
+  top: -140px;
+  left: 15px;
+}
+
+.profile-picture-picture {
+  width: 160px;
+  height: 160px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.profile-picture-picture:hover .profile-picture-editpic {
+  display: block;
+}
+
+.profile-picture-editpic {
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background:black;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.profile-picture-form {
+  display: none;
+}
+
+.profile-cover-form {
+  display: none;
+}
+
+.profile-picture-editpic:hover {
+  cursor: pointer;
+}
+
+.profile-picture-editpic .material-icons {
+  font-size: 92px;
+  height: 160px;
+  line-height: 160px;
+}
+
+.profile-navigation {
+  margin-left: 200px;
+  float: left;
+  border-left: 1px solid #E9EAED;
+  font-weight: 400;
+  font-size: 14px;
+
+}
+
+.profile-navigation a {
+  color: #365899;
+  text-decoration: none;
+
+}
+
+.profile-navigation li {
+  float: left;
+  border-right: 1px solid #E9EAED;
+  padding: 15px;
+}
+
+.profile-navigation li:hover {
+  background: #E9EBEE;
+}
