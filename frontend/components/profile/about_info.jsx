@@ -7,10 +7,17 @@ class AboutInfo extends React.Component {
     this.submitProfileEdit = this.submitProfileEdit.bind(this);
   }
 
+  parseDateString(dateString) {
+    return dateString.split("-");
+  }
 
   submitProfileEdit() {
-    var formData = new FormData();
-    formData.append("user[birthday]", new Date($('input[name="birthday"]').val()));
+    let dateString = $('input[name="birthday"]').val();
+    let year, month, day;
+    [year, month, day] = this.parseDateString(dateString);
+
+    let formData = new FormData();
+    formData.append("user[birthday]", new Date(year, month - 1, day));
     formData.append("user[relationship]", $('input[name="relationship"]').val());
     formData.append("user[school]", $('input[name="school"]').val());
     formData.append("user[workplace]", $('input[name="workplace"]').val());
