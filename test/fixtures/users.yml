@@ -18,6 +18,7 @@
 #  cover_pic_url   :string
 #  birthday        :date
 #  school          :string
+#  current_city    :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

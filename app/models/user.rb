@@ -18,6 +18,7 @@
 #  cover_pic_url   :string
 #  birthday        :date
 #  school          :string
+#  current_city    :string
 #
 
 class User < ActiveRecord::Base

@@ -3,13 +3,14 @@ import { login, logout, signup } from '../../actions/session_actions';
 import { fetchUser } from '../../actions/user_actions';
 import Profile from './profile';
 
-const mapStateToProps = ({ session }, ownProps) => ({
+const mapStateToProps = ({ session, user }, ownProps) => ({
   currentUser: session.currentUser,
-  user: fetchUser(ownProps.params.userId)
+  user
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  fetchUser: () => (dispatch(fetchUser(ownProps.params.id)))
 });
 
 export default connect(
