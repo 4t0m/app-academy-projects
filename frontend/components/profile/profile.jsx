@@ -17,10 +17,10 @@ class Profile extends React.Component {
 
 
   render () {
-    return <div>
+    return <div className="profile-body">
       <HeaderContainer />
       <Pics />
-      <AboutInfo user={this.props.user}/>
+      <AboutInfo user={this.props.user} currentUser={this.props.currentUser}/>
       <Friends />
       <p>
         This will be a profile

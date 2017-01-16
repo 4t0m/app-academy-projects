@@ -4,3 +4,38 @@ $gray: #dfe3ee;
 $light-gray: #f7f7f7;
 $white: #ffffff;
 $green: #59983B;
+
+.profile-body {
+  background-color: $light-gray;
+}
+
+.about-info {
+  height: 300px;
+  width: 300px;
+  background-color: $white;
+}
+
+.about-info li {
+  padding: 10px 0;
+}
+
+.about-info input[type="text"],
+.about-info input[type="date"]  {
+  color: black;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.about-info input[type="date"] {
+  width: 200px;
+}
+
+.about-info input[type="text"] {
+  width: 110px;
+}
+
+.about-info-header {
+  display: flex;
+  justify-content: space-between;
+}
