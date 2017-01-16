@@ -28,7 +28,7 @@ class AboutInfo extends React.Component {
 
   saveEditButton() {
     if (this.props.user) {
-      if (this.props.currentUser.id === this.props.user.id) {
+      if (this.props.currentUser && this.props.currentUser.id === this.props.user.id) {
         return <div className="about-user-save" onClick={this.submitProfileEdit}>Save Changes</div>
       }
     }
@@ -101,10 +101,10 @@ class AboutInfo extends React.Component {
   }
 
   render () {
-    if (this.props.user.id){
+    if (this.props.user){
       let aboutInfo, infoClass;
 
-      if (this.props.currentUser.id === this.props.user.id) {
+      if (this.props.currentUser && this.props.currentUser.id === this.props.user.id) {
         aboutInfo = this.thisUserInfo();
         infoClass = "own-info";
       } else {
