@@ -28,7 +28,9 @@ class Header extends React.Component {
         <div className="header-container">
           <div className="header-bar">
             <div className="logo-and-search">
-              <h2 className="app-name">fbc</h2>
+              <Link to={"/"} className="app-name">
+                <h2 className="app-name">fbc</h2>
+              </Link>
               <input type="text" className="search-bar"
                 placeholder="Search"></input>
             </div>

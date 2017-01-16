@@ -101,16 +101,19 @@ class AboutInfo extends React.Component {
   }
 
   render () {
-
-
     if (this.props.user.id){
+      let aboutInfo, infoClass;
 
-      const aboutInfo = this.props.currentUser.id === this.props.user.id ?
-                                                   this.thisUserInfo() :
-                                                   this.otherUserInfo();
+      if (this.props.currentUser.id === this.props.user.id) {
+        aboutInfo = this.thisUserInfo();
+        infoClass = "own-info";
+      } else {
+        aboutInfo = this.otherUserInfo();
+        infoClass = "other-info";
+      }
 
       return (
-        <div className="about-info">
+        <div className={`about-info ${infoClass}`}>
           <div className="about-info-header">
             <h3>Intro</h3>
             {this.saveEditButton()}

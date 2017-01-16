@@ -10,13 +10,29 @@ $green: #59983B;
 }
 
 .about-info {
-  height: 400px;
   width: 300px;
   background-color: $white;
+  border: 1px solid $gray;
+}
+
+.own-info {
+  height: 475px;
+}
+
+.other-info {
+  height: 300px;
+}
+
+.about-info ul {
+  padding: 0 10px;
 }
 
 .about-info li {
   padding: 10px 0;
+}
+
+.about-info h3 {
+  font-weight: 550;
 }
 
 .about-info input[type="text"],
@@ -24,18 +40,26 @@ $green: #59983B;
   color: black;
   padding: 3px 5px;
   box-sizing: border-box;
-  border: 1px solid black;
+  border-bottom: 1px solid $gray;
+  width: 100%
 }
 
-.about-info input[type="date"] {
-  width: 200px;
-}
-
-.about-info input[type="text"] {
-  width: 110px;
-}
 
 .about-info-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.about-user-save {
+  color: $white;
+  font-size: 14px;
+  font-weight: normal;
+  height: 25px;
+  background-color: $dark-blue;
+  padding: 3px 5px;
+  border-radius: 2px;
+  border: 1px solid black;
+  cursor: pointer;
 }
