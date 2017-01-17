@@ -26,12 +26,11 @@ class TopSection extends React.Component {
 
   updateProfilePicButton() {
     if (this.props.currentUser) {
-      if (this.props.params.id == this.props.currentUser.id) {
+      if (this.props.params.id === this.props.currentUser.id) {
         return (
           <div className="profile-picture-editpic" onClick={ () => {
             $('#profile-pic-input').click()
           }}>
-
             <form className="profile-picture-form" >
               <input id="profile-pic-input" type="file" name="" value="" onChange={this.uploadNewPhoto}/>
             </form>
@@ -61,9 +60,7 @@ class TopSection extends React.Component {
   }
 
   uploadCoverPhoto(e) {
-
     var file = e.currentTarget.files[0];
-
     var formData = new FormData();
     formData.append("user[coverpic]", file);
     this.props.updateUser(formData);
@@ -86,7 +83,7 @@ class TopSection extends React.Component {
           </div>
         );
       } else {
-        if (this.props.friendRelationship.user1 == this.props.params.id) {
+        if (this.props.friendRelationship.user1 === this.props.params.id) {
           return(<div onClick={this.acceptFriendship}>Accept Friendship</div>);
         } else {
           return(
@@ -99,24 +96,21 @@ class TopSection extends React.Component {
       }
     } else {
       if (this.props.currentUser) {
-        if (this.props.params.id == this.props.currentUser.id) {
+        if (this.props.params.id === this.props.currentUser.id) {
           return this.updateCoverPicButton();
         } else {
           return(<div onClick={this.addFriend}>Add Friend</div>);
         }
       }
-
     }
   }
 
   render() {
-
     const fullName = this.props.user ? `${this.props.user.fname} ${this.props.user.lname}` : "";
     const firstName = this.props.user ? `${this.props.user.fname}` : "";
-
-    const userCoverPic = this.props.user ? this.props.user.coverpic : "";
+    const userCoverPic = this.props.user ? this.props.user.cover_pic : "";
     const coverStyle = {backgroundImage:"url("+userCoverPic+")"};
-    const userProfilePic = this.props.user ? this.props.user.profilepic : "";
+    const userProfilePic = this.props.user ? this.props.user.profile_pic : "";
     const profileStyle = {backgroundImage:"url("+userProfilePic+")"};
 
     return (

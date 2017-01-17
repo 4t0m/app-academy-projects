@@ -28,7 +28,7 @@ class Profile extends React.Component {
       <HeaderContainer />
       <div className="profile-container">
         <div className="profile-body">
-          <TopSection />
+          <TopSection user={this.props.user}/>
           <AboutInfo user={this.props.user} currentUser={this.props.currentUser}
             updateUser={this.props.updateUser}/>
           <Friends />

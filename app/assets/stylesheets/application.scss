@@ -10,6 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
+
  *= require_self
  */
+
+
+@import "base/colors.scss";
+@import "base/fonts.scss";
+@import "base/grid.scss";
+@import "base/layout.scss";
+@import "base/reset.css";
+@import "welcome.scss";
+@import "header.scss";
+@import "profile.scss";
+@import "profile_top_section.scss";
+@import "static_pages.scss";
