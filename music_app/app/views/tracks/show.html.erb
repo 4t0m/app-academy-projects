@@ -1,0 +1,18 @@
+<h1><%= @track.title %></h1>
+
+<%= ugly_lyrics(@track.lyrics) %>
+
+<%= render "notes/form", track: @track %>
+
+<h2>Notes</h2>
+<ul>
+  <% @notes = @track.notes %>
+  <%= render @notes %>
+</ul>
+
+
+<ul>
+  <li><%= link_to "Edit Track", edit_track_url(@track) %></li>
+  <li><%= button_to "Delete Track", track_url(@track), method: :delete %></li>
+  <li><%= link_to "View All #{@album.name} Tracks", album_url(@album) %></li>
+</ul>
