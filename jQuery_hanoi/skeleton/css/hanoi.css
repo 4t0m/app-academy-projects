@@ -1,0 +1,33 @@
+
+ul {
+  width: 300px;
+  height: 150px;
+  list-style: none;
+  padding: 0;
+  bottom: 0px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 30px;
+  border-bottom: 20px solid black;
+  text-align: center;
+}
+
+li {
+  background-color: grey;
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
+  float
+}
+
+#disk1 {
+  width: 100px;
+}
+#disk2 {
+  width: 200px;
+}
+#disk3 {
+  width: 300px;
+}

@@ -1,0 +1,149 @@
+.content-section {
+  margin-top: 20px;
+}
+
+
+.front-page-video {
+  display: flex;
+  flex-direction: column;
+}
+
+.front-page-video span {
+  margin: 10px 0;
+}
+
+.article-preview {
+  position: relative;
+  padding-top: 10px;
+}
+
+.article-preview:before {
+  content : "";
+  position: absolute;
+  top: 5px;
+  left: 25%;
+  width: 50%;
+  border-top: 1px solid $light-gray;
+}
+
+.article-preview-title {
+  font-weight: 700;
+  font-size: 13px;
+  display: block;
+}
+
+.article-preview-title:hover {
+  text-decoration: underline;
+}
+
+.article-byline {
+  color: $gray;
+  font-size: 11px;
+  display: block;
+  margin: 10px 0;
+}
+
+.article-preview-content {
+  display: block;
+  line-height: 16px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 26px;
+  font-style: italic;
+}
+
+h1:hover  {
+  text-decoration: underline;
+}
+
+.header-article-content {
+  list-style: disc;
+  position: relative;
+  left: 16px;
+}
+
+.header-article-content li {
+  line-height: 18px;
+  margin: 10px 0;
+}
+
+.comments-link {
+  list-style: none;
+  text-decoration: underline;
+  color: $blue;
+}
+
+.opinion-section section {
+  float: left;
+}
+
+.opinion-section-title {
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.opinion-article-type {
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.opinion-unorder-lists {
+  font-weight: 700;
+  font-size: 11px;
+  list-style: disc;
+  position: relative;
+  left: 16px;
+}
+
+.opinion-unorder-lists li {
+  margin: 5px 0;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail img {
+  object-fit: cover;
+  height: 100px;
+}
+
+.sign-up-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-section div {
+  display: flex;
+  margin: 10px 0;
+}
+
+.sign-up-section div input {
+  flex: 1;
+  -webkit-appearance: text;
+  appearance: text;
+  border: 1px solid $gray;
+  padding: 3px;
+}
+
+.sign-up-section div button {
+  position: relative;
+  right: 2px;
+}
+
+.sign-up-section input:after {
+  content: "";
+}
+
+.fine-print {
+  text-align: center;
+  font-family: $sans-serif;
+  display: block;
+  font-size: 9px;
+  color: $gray;
+}
