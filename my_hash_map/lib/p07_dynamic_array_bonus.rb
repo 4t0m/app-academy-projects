@@ -78,8 +78,8 @@ class DynamicArray
   def pop
     popped_val = last
     @store[capacity] = nil
-
-    return popped_val
+    
+    popped_val
   end
 
   def shift
