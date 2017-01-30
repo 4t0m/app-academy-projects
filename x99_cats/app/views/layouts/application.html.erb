@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NinetyNineCatsDay1</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <% if current_user %>
+      <%= current_user.user_name %>
+      <%= button_to "Logout", logout_url, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_sessions_url %>
+    <% end %>
+  </header>
+<%= yield %>
+
+</body>
+</html>
