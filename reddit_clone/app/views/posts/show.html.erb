@@ -1,0 +1,12 @@
+<% if @post.url %>
+  <%= link_to "#{@post.title}", @post.url %>
+<% else %>
+  <h1><%= @post.title %></h1>
+<% end %>
+
+
+<%= @post.content %>
+
+<%= button_to "Delete Post", post_url(@post), method: :delete %>
+<%= button_to "Edit Post", edit_post_url(@post), method: :get %>
+<%= button_to "All Posts", posts_url, method: :get %>

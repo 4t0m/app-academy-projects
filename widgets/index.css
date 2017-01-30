@@ -1,0 +1,60 @@
+html, body, li, ul, div, article {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+div .tab-widget{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.tab-widget ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-widget li {
+  text-align: center;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: green;
+}
+
+.tab-widget article {
+  background-color: gray;
+}
+
+.tab-widget li:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.clock-widget {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  background: orange;
+}
+
+.clock-widget h1{
+  font-family: open sans, sans-serif;
+  padding: 0 10px;
+}
+
+.date, .time {
+  display: flex;
+  justify-content: space-between;
+}
